@@ -8,6 +8,7 @@ GET     /eddie                      controllers.Application.page1()
 GET     /joyce                      controllers.Application.page2()
 GET     /jake                       controllers.Application.page3()
 GET     /mho                        controllers.Application.mho()
+GET     /malia                        controllers.Application.malia()
 
 
 # Map static resources from the /public folder to the /assets URL path

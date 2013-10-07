@@ -8,6 +8,7 @@ import views.html.eddie;
 import views.html.joyce;
 import views.html.jake;
 import views.html.mho;
+import views.html.malia;
 
 /**
  * Implements the controllers for this application.
@@ -53,6 +54,15 @@ public class Application extends Controller {
    */
   public static Result mho() {
     return ok(mho.render("Welcome to Page1."));
+    
+  }
+  
+  /**
+   * Returns page for Micheal Ho.
+   * @return The mho page.
+   */
+  public static Result malia() {
+    return ok(malia.render("Welcome to Page1."));
     
   }
 

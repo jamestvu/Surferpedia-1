@@ -67,6 +67,23 @@ body {
   height: 500px;
 }
 
+.malia-img {
+  background: url('../images/maliamanuel.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.malia-img2 {
+  background: url('../images/maliamanuel.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+
 .carousel-1 {
   background-image:url('../images/ho.jpg');
   background-size: contain;
