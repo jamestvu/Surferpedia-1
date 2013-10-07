@@ -1,4 +1,4 @@
-![screenshot](https://raw.github.com/jortal/surferpedia/master/doc/github_cover.png)
+![screenshot](https://raw.github.com/jortal/ICS314/master/Surferpedia/master/doc/github_cover.png)
 
 Overview
 --------
