@@ -1,0 +1,76 @@
+body {
+  padding-top: 0px; /* Move body of page below header. */
+  margin: 0px;
+}
+
+.navbar {
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+.carousel-control {
+  color: #000;
+}
+
+.header-img {
+  background-image: url('../images/surfing_header.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 315px;
+}
+
+.eddie-img {
+  background: url('../images/eddie01.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.eddie-img2 {
+  background: url('../images/eddie01.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.joyce-img {
+  background: url('../images/Joyce_Hoffman.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.joyce-img2 {
+  background: url('../images/Joyce_Hoffman.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.jake-img {
+  background: url('../images/jake_marshall_ellis.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.jake-img2 {
+  background: url('../images/jake_marshall_ellis.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.carousel-caption {
+  padding-bottom: 0px;
+}
+
+.carousel-indicators {
+  bottom: 0px;
+}
