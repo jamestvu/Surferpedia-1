@@ -67,6 +67,14 @@ body {
   height: 500px;
 }
 
+.carousel-1 {
+  background-image:url('../images/ho.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+
 .carousel-caption {
   padding-bottom: 0px;
 }
