@@ -92,6 +92,14 @@ body {
   height: 500px;
 }
 
+.kalanidavid {
+  background: url('../images/kalanidavid.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
 
 .carousel-caption {
   padding-bottom: 0px;

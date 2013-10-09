@@ -3,12 +3,12 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.Index;
-import views.html.Page1;
 import views.html.eddie;
 import views.html.joyce;
 import views.html.jake;
 import views.html.mho;
 import views.html.malia;
+import views.html.kalanidavid;
 
 /**
  * Implements the controllers for this application.
@@ -63,6 +63,15 @@ public class Application extends Controller {
    */
   public static Result malia() {
     return ok(malia.render("Welcome to Page1."));
+    
+  }
+  
+  /**
+   * Returns page for Kalani Daivd.
+   * @return The kalanidavid page.
+   */
+  public static Result kalanidavid() {
+    return ok(kalanidavid.render("Welcome to Page1."));
     
   }
 
