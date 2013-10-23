@@ -32,7 +32,7 @@ public class Application extends Controller {
     
   }
   /**
-   * Returns page for Joyce Hoffman
+   * Returns page for Joyce Hoffman.
    * @return The joyce page
    */
   public static Result page2() {
@@ -40,7 +40,7 @@ public class Application extends Controller {
     
   }
   /**
-   * Returns page for Jake Marshal
+   * Returns page for Jake Marshal.
    * @return The jake page.
    */
   public static Result page3() {
@@ -58,7 +58,7 @@ public class Application extends Controller {
   }
   
   /**
-   * Returns page for Micheal Ho.
+   * Returns page for Malia.
    * @return The mho page.
    */
   public static Result malia() {

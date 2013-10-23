@@ -6,7 +6,8 @@
 <head>
 <title>Surferpedia</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 <!--  Load site-specific customizations after bootstrap. -->
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
@@ -20,50 +21,65 @@
 </head>
 <body>
 
-	<!-- header image -->
-	<div class="header-img"></div>
+    <!-- header image -->
+    <div class="header-img"></div>
 
-	<!-- Responsive navbar -->
-	<div class="navbar navbar-inverse" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<!--  Display three horizontal lines when navbar collapsed. -->
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/">surferpedia</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Males <b class="caret"></b></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="@routes.Application.page1()">Eddie Aikau</a></li>
-              <li><a href="@routes.Application.mho()">Micheal Ho</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Females<b class="caret"></b></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="@routes.Application.page2()">Joyce Hoffman</a></li>
-                            <li><a href="@routes.Application.malia()">Malia Manuel</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Groms<b class="caret"></b></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="@routes.Application.page3()">Jake Marshall</a></li>
-							<li><a href="@routes.Application.kalanidavid()">Kalani David</a></li>
-						</ul></li>
+    <!-- Responsive navbar -->
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                    <!--  Display three horizontal lines when navbar collapsed. -->
+                    <span class="icon-bar"></span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">surferpedia</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown"><a class="dropdown-toggle"
+                        data-toggle="dropdown" href="#">Males <b
+                            class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a
+                                href="@routes.Application.page1()">Eddie
+                                    Aikau</a></li>
+                            <li><a href="@routes.Application.mho()">Micheal
+                                    Ho</a></li>
+                        </ul></li>
+                    <li class="dropdown"><a class="dropdown-toggle"
+                        data-toggle="dropdown" href="#">Females<b
+                            class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a
+                                href="@routes.Application.page2()">Joyce
+                                    Hoffman</a></li>
+                            <li><a
+                                href="@routes.Application.malia()">Malia
+                                    Manuel</a></li>
+                        </ul></li>
+                    <li class="dropdown"><a class="dropdown-toggle"
+                        data-toggle="dropdown" href="#">Groms<b
+                            class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a
+                                href="@routes.Application.page3()">Jake
+                                    Marshall</a></li>
+                            <li><a
+                                href="@routes.Application.kalanidavid()">Kalani
+                                    David</a></li>
+                        </ul></li>
 
-				</ul>
-			</div>
-		</div>
-	</div>
-	@content
-	<!-- Load Bootstrap JavaScript components. HTMLUnit (used in testing) requires JQuery 1.8.3 or below). -->
-	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-	<script
-		src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @content
+    <!-- Load Bootstrap JavaScript components. HTMLUnit (used in testing) requires JQuery 1.8.3 or below). -->
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script
+        src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
