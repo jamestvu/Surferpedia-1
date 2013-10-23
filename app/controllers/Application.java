@@ -1,15 +1,15 @@
 package controllers;
 
+import java.util.Map;
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.Index;
-import views.html.Eddie;
-import views.html.Joyce;
-import views.html.Jake;
-import views.html.Mho;
-import views.html.Malia;
-import views.html.KalaniDavid;
-
+import views.html.ManageSurfer;
+import views.html.ShowSurfer;
+import models.SurferDB;
+import views.formdata.SurferFormData;
+import views.formdata.SurferTypes;
 /**
  * Implements the controllers for this application.
  */
@@ -24,55 +24,27 @@ public class Application extends Controller {
   }
   
   /**
-   * Returns page for Eddie Aikau.
-   * @return The eddie page.
+   * Returns new surfer page.
+   * @return The add surfer page.
    */
-  public static Result page1() {
-    return ok(Eddie.render("Welcome to Page1."));
-    
-  }
-  /**
-   * Returns page for Joyce Hoffman.
-   * @return The joyce page
-   */
-  public static Result page2() {
-    return ok(Joyce.render("Welcome to Page1."));
-    
-  }
-  /**
-   * Returns page for Jake Marshal.
-   * @return The jake page.
-   */
-  public static Result page3() {
-    return ok(Jake.render("Welcome to Page1."));
-    
+  
+  public static Result newSurfer() {
+    Form<SurferFormData> formData = Form.form(SurferFormData.class);
+    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
+    return ok(ManageSurfer.render(formData, surferTypeMap));
   }
   
-  /**
-   * Returns page for Micheal Ho.
-   * @return The mho page.
-   */
-  public static Result mho() {
-    return ok(Mho.render("Welcome to Page1."));
-    
+  public static Result postSurfer() {
+    Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
+    if (formData.hasErrors()) {
+      Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
+      return badRequest(ManageSurfer.render(formData, surferTypeMap));
+    }
+    else {
+      SurferFormData data = formData.get();
+      SurferDB.addSurfer(data);
+      Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
+      return ok(ManageSurfer.render(formData, surferTypeMap));  
+    }
   }
-  
-  /**
-   * Returns page for Malia.
-   * @return The mho page.
-   */
-  public static Result malia() {
-    return ok(Malia.render("Welcome to Page1."));
-    
-  }
-  
-  /**
-   * Returns page for Kalani Daivd.
-   * @return The kalanidavid page.
-   */
-  public static Result kalanidavid() {
-    return ok(KalaniDavid.render("Welcome to Page1."));
-    
-  }
-
 }

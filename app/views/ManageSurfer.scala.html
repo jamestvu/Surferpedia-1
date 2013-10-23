@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean])
 
-</body>
-</html>
+@import helper._
+@import bootstrap3._
+
+@Main("Managing Surfers") {
+
+<div class="container" style="margin-top:20px">
+  @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
+
+  @text(surferForm("name"),
+        label = "Name",
+        placeholder = "",
+        help = "The name of the surfer.")
+
+  @text(surferForm("home"),
+        label = "Home",
+        placeholder = "",
+        help = "Where the surfer hails from.")
+        
+  @text(surferForm("awards"),
+        label = "Awards",
+        placeholder = "",
+        help = "List titles and other surfing awards.")
+        
+  @text(surferForm("carouselURL"),
+        label = "Caroursel URL",
+        placeholder = "http://imgexampe.com/example.png",
+        help = "A URL to the picture to be presented in the home page carousel for this surfer.")
+
+        
+  @text(surferForm("bioURL"),
+        label = "Bio URL",
+        placeholder = "http://imgexampe.com/example.png",
+        help = "A URL to the picture to be presented in the bio page for this surfer.")
+
+  @bootstrap3.textarea(surferForm("bio"),
+            rows = "10",
+            label = "Bio",
+            placeholder = "Bio statement goes here.",
+            help = "One paragraph description of this surfer.")
+  
+  @text(surferForm("slug"),
+        label = "Slug",
+        placeholder = "",
+        help = "Letters and digits to be used to identify this surfer in URLs, i.e. http://surferpedia.com/surfer/surfername")
+
+  @bootstrap3.select(surferForm("surferType"),
+                     label = "Surfer type",
+                     optionMap = surferTypeMap,
+                     isMultiple = false,
+                     help = "The type of surfer for placement in the menubar.")
+                           
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+  }
+</div>
+        
+}
