@@ -3,12 +3,12 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.Index;
-import views.html.eddie;
-import views.html.joyce;
-import views.html.jake;
-import views.html.mho;
-import views.html.malia;
-import views.html.kalanidavid;
+import views.html.Eddie;
+import views.html.Joyce;
+import views.html.Jake;
+import views.html.Mho;
+import views.html.Malia;
+import views.html.KalaniDavid;
 
 /**
  * Implements the controllers for this application.
@@ -28,7 +28,7 @@ public class Application extends Controller {
    * @return The eddie page.
    */
   public static Result page1() {
-    return ok(eddie.render("Welcome to Page1."));
+    return ok(Eddie.render("Welcome to Page1."));
     
   }
   /**
@@ -36,7 +36,7 @@ public class Application extends Controller {
    * @return The joyce page
    */
   public static Result page2() {
-    return ok(joyce.render("Welcome to Page1."));
+    return ok(Joyce.render("Welcome to Page1."));
     
   }
   /**
@@ -44,7 +44,7 @@ public class Application extends Controller {
    * @return The jake page.
    */
   public static Result page3() {
-    return ok(jake.render("Welcome to Page1."));
+    return ok(Jake.render("Welcome to Page1."));
     
   }
   
@@ -53,7 +53,7 @@ public class Application extends Controller {
    * @return The mho page.
    */
   public static Result mho() {
-    return ok(mho.render("Welcome to Page1."));
+    return ok(Mho.render("Welcome to Page1."));
     
   }
   
@@ -62,7 +62,7 @@ public class Application extends Controller {
    * @return The mho page.
    */
   public static Result malia() {
-    return ok(malia.render("Welcome to Page1."));
+    return ok(Malia.render("Welcome to Page1."));
     
   }
   
@@ -71,7 +71,7 @@ public class Application extends Controller {
    * @return The kalanidavid page.
    */
   public static Result kalanidavid() {
-    return ok(kalanidavid.render("Welcome to Page1."));
+    return ok(KalaniDavid.render("Welcome to Page1."));
     
   }
 
