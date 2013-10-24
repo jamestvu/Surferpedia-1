@@ -25,6 +25,7 @@ public class SurferTypes {
   
   /**
    * Returns a Map of the selected surfer type.
+   * @param surfType The type of surfer.
    * @return The surfer type map.
    */
   public static Map<String, Boolean> getTypes(String surfType) {
@@ -37,7 +38,7 @@ public class SurferTypes {
 
   /**
    * Returns true if surfType is valid type.
-   * @param telType The surfer type.
+   * @param surfType The surfer type.
    * @return True if valid, else false.
    */
   public static boolean isType(String surfType) {

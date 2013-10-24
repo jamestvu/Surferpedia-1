@@ -8,6 +8,20 @@ body {
   margin-bottom: 0px;
 }
 
+.bio-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.carousel-img {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;  
+}
+
 .carousel-control {
   color: #000;
 }

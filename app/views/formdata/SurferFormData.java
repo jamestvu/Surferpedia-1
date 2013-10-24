@@ -3,6 +3,8 @@ package views.formdata;
 import java.util.ArrayList;
 import java.util.List;
 import models.Surfer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import play.data.validation.ValidationError;
 
 /**
@@ -12,7 +14,7 @@ import play.data.validation.ValidationError;
  */
 
 public class SurferFormData {
-    
+      
   /** Name form field. **/
   public String name = ""; 
   /** Hometown form field. **/
@@ -38,14 +40,14 @@ public class SurferFormData {
   
   /**
    * Constructor for initializing purposes.
-   * @param name
-   * @param home
-   * @param awards
-   * @param carouselURL
-   * @param bioURL
-   * @param bio
-   * @param slug
-   * @param surferType
+   * @param name The name.
+   * @param home The home town.
+   * @param awards The awards or titles.
+   * @param carouselURL The URL for the carousel image.
+   * @param bioURL The URL for the bio image.
+   * @param bio The bio text.
+   * @param slug The slug.
+   * @param surferType The type of surfer.
    */
   
   public SurferFormData(String name, String home, String awards, String carouselURL, String bioURL,
@@ -78,14 +80,16 @@ public class SurferFormData {
 
   /**
    * Validates form input by the user.
-   * All fields must not be empty.
-   * Telephone must be 12 characters.
+   * All fields except for awards must be non-empty.
+   * Slug must be unique on creation, and must be read-only on edits.
+   * Slug must be only letters and digits.
+   * Type must be either "Male", "Female", or "Grom"
    * @return null if no errors, list of ValidationErrors if there are errors.
    */
   
   public List<ValidationError> validate() {
     List<ValidationError> errors = new ArrayList<>();
-    
+        
     if (name == null || name.length() == 0) {
       errors.add(new ValidationError("name", "Name is required."));
     }
@@ -108,14 +112,27 @@ public class SurferFormData {
     }
 
 
+    /**
+     * Slug validation. Checks if there any special characters and throws and error if there are any.
+     * Special characters are anything that is not alphanumeric.
+     */
+    Pattern p = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
+    Matcher m = p.matcher(slug);
+    boolean b = m.find();
+    
+    if (b) {
+      errors.add(new ValidationError("slug", "Surfer slug contains illegal characters. Only alphanumeric characgters"
+          + " are allowed."));
+    }
+    
     if (slug == null || slug.length() == 0) {
       errors.add(new ValidationError("slug", "Slug is required."));
     }
-
+    
     if (!SurferTypes.isType(surferType)) {
       errors.add(new ValidationError("surferType", "Surfer type is invalid"));      
     }
-
+    
     return errors.isEmpty() ? null : errors;
   }
   

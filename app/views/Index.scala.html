@@ -1,64 +1,22 @@
 @(message: String) @Main("Home") {
-<div id="carousel-example-generic" class="carousel slide">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0"
-            class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+      @for((surfer, index) <- SurferDB.getSurfers().zipWithIndex) {
+        <li data-target="#carousel-example-generic" data-slide-to="@index" @if(index == 0) {class="active"}></li>
+      }
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-        <div class="item active">
-            <div class="eddie-img"></div>
+      @for((surfer, index) <- SurferDB.getSurfers().zipWithIndex) {        
+        <div @if(index == 0) {class="item active"} else {class="item"}>
+            <div class="carousel-img" style="background-image: url('@surfer.getCarouselURL');"></div>
             <div class="carousel-caption">
-                <h3>Eddie Aikahu</h3>
+                <h3>@surfer.getName()</h3>
             </div>
         </div>
-
-        <div class="item">
-            <div class="joyce-img"></div>
-            <div class="carousel-caption">
-                <h3>Joyce Hoffman</h3>
-            </div>
-
-        </div>
-
-
-        <div class="item">
-            <div class="jake-img"></div>
-            <div class="carousel-caption">
-                <h3>Jake Marshall Ellis</h3>
-            </div>
-
-        </div>
-
-        <div class="item">
-            <div class="carousel-1"></div>
-            <div class="carousel-caption">
-                <h3>Micheal Ho</h3>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="malia-img"></div>
-            <div class="carousel-caption">
-                <h3>Malia Manuel</h3>
-            </div>
-
-        </div>
-
-        <div class="item">
-            <div class="kalanidavid"></div>
-            <div class="carousel-caption">
-                <h3>Kalani David</h3>
-            </div>
-
-        </div>
+      }
     </div>
 
     <!-- Controls -->

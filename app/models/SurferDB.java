@@ -7,8 +7,7 @@ import java.util.Map;
 import views.formdata.SurferFormData;
 
 /**
- * Provides in-memory repository for the Contact data.
- * 
+ * Provides in-memory repository for the Surfer data.
  * @author Jonathan Ortal
  * 
  */
@@ -19,8 +18,8 @@ public class SurferDB {
 
   /**
    * Adds a new surfer to the "database".
-   * @param formData The contact data
-   * @return The created contact
+   * @param formData The surfer data
+   * @return The created surfer
    */
   public static Surfer addSurfer(SurferFormData formData) {
     String slug = formData.slug;
@@ -31,17 +30,15 @@ public class SurferDB {
   }
 
   /**
-   * Returns the list of contacts.
-   * 
-   * @return A list of contacts.
+   * Returns the list of surfers.
+   * @return A list of surfers.
    */
   public static List<Surfer> getSurfers() {
     return new ArrayList<>(surfers.values());
   }
-
+  
   /**
-   * Returns Contact with associated ID.
-   * 
+   * Returns Surfer with associated slug.
    * @param slug The slug.
    * @return The retrieved Slug.
    */
@@ -51,5 +48,13 @@ public class SurferDB {
       throw new RuntimeException("Invalid ID: " + slug);
     }
     return surfer;
+  }
+  
+  /**
+   * Delete a surfer.
+   * @param slug The slug of the surfer to delete.
+   */
+  public static void deleteSurfer(String slug) {
+    surfers.remove(slug);
   }
 }
