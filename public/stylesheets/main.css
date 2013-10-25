@@ -19,7 +19,7 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  height: 500px;  
+  height: 376px;  
 }
 
 .carousel-control {
@@ -30,90 +30,8 @@ body {
   background-image: url('../images/surfing_header.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  height: 315px;
+  height: 215px;
 }
-
-.eddie-img {
-  background: url('../images/eddie01.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.eddie-img2 {
-  background: url('../images/eddie01.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.joyce-img {
-  background: url('../images/Joyce_Hoffman.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.joyce-img2 {
-  background: url('../images/Joyce_Hoffman.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.jake-img {
-  background: url('../images/jake_marshall_ellis.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.jake-img2 {
-  background: url('../images/jake_marshall_ellis.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.malia-img {
-  background: url('../images/maliamanuel.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.malia-img2 {
-  background: url('../images/malia.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-
-.carousel-1 {
-  background-image:url('../images/ho.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
-.kalanidavid {
-  background: url('../images/kalanidavid.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 500px;
-}
-
 
 .carousel-caption {
   padding-bottom: 0px;

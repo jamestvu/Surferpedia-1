@@ -51,7 +51,8 @@ public class Application extends Controller {
    */
   public static Result manageSurfer(String slug) {
     slug = slug.trim();
-    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
+    String surfType = SurferDB.getSurfer(slug).getSurferType();
+    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(surfType);
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
     return ok(ManageSurfer.render(formData, surferTypeMap));
