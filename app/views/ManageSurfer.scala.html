@@ -40,7 +40,7 @@
             placeholder = "Bio statement goes here.",
             help = "One paragraph description of this surfer.")
   
-  @if(surferForm("slug").value == null) { 
+  @if(surferForm("slug").value == null || surferForm("slug").value.toString().equals("None") || surferForm("slug").value.toString().equals("")) { 
   
   @slug(surferForm("slug"),
         label = "Slug",
