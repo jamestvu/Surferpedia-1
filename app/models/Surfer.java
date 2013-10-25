@@ -132,7 +132,7 @@ public class Surfer {
    * @return The surfer's slug
    */
   public String getSlug() {
-    return slug;
+    return slug.trim();
   }
 
   /**
@@ -140,7 +140,7 @@ public class Surfer {
    * @param slug The surfer's slug.
    */
   public void setSlug(String slug) {
-    this.slug = slug;
+    this.slug = slug.trim();
   }
 
   /**

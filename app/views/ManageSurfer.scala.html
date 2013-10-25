@@ -10,17 +10,17 @@
 
   @text(surferForm("name"),
         label = "Name",
-        placeholder = "",
+        placeholder = "Surfer Name",
         help = "The name of the surfer.")
 
   @text(surferForm("home"),
         label = "Home",
-        placeholder = "",
+        placeholder = "Surfer Hometown",
         help = "Where the surfer hails from.")
         
   @text(surferForm("awards"),
         label = "Awards",
-        placeholder = "",
+        placeholder = "Awards/Titles (optional)",
         help = "List titles and other surfing awards.")
         
   @text(surferForm("carouselURL"),
@@ -40,10 +40,20 @@
             placeholder = "Bio statement goes here.",
             help = "One paragraph description of this surfer.")
   
-  @text(surferForm("slug"),
+  @if(surferForm("slug").value == null) { 
+  
+  @slug(surferForm("slug"),
         label = "Slug",
         placeholder = "surfername",
-        help = "Letters and digits to be used to identify this surfer in URLs, i.e. http://surferpedia.com/surfer/surfername")
+        help = "Letters and digits to be used to identify this surfer in URLs, "
+               +"i.e. http://surferpedia.com/surfer/surfername")
+  } else {
+
+  @slug(surferForm("slug"),
+        label = "Slug",
+        placeholder = "surfername",
+        help = "Slug field cannot be edited for an existing surfer.")
+  }  
 
   @bootstrap3.select(surferForm("surferType"),
                      label = "Surfer type",

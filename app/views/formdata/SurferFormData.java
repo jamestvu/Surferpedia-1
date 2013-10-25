@@ -121,7 +121,7 @@ public class SurferFormData {
     boolean b = m.find();
     
     if (b) {
-      errors.add(new ValidationError("slug", "Surfer slug contains illegal characters. Only alphanumeric characgters"
+      errors.add(new ValidationError("slug", "Surfer slug contains illegal characters. Only alphanumeric characters"
           + " are allowed."));
     }
     

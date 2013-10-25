@@ -50,6 +50,7 @@ public class Application extends Controller {
    * @return The new surfer form page, pre filled with the surfer's information.
    */
   public static Result manageSurfer(String slug) {
+    slug = slug.trim();
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
@@ -57,7 +58,7 @@ public class Application extends Controller {
    }
   
   /**
-   * Returns new surfer page.
+   * Returns add new surfer page.
    * @return The add surfer page.
    */  
   public static Result newSurfer() {
@@ -68,7 +69,7 @@ public class Application extends Controller {
   
   /**
    * Handles post of the form data.
-   * @return The new surfer form page.
+   * @return The newly added surfer page.
    */
   public static Result postSurfer() {
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
