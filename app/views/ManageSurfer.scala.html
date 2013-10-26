@@ -1,4 +1,4 @@
-@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean])
+@(surferForm: Form[views.formdata.SurferFormData], surferTypeMap: Map[String, Boolean], slugExists: Boolean)
 
 @import helper._
 @import bootstrap3._
@@ -39,22 +39,18 @@
             label = "Bio",
             placeholder = "Bio statement goes here.",
             help = "One paragraph description of this surfer.")
-  
-  @if(surferForm("slug").value == null || surferForm("slug").value.toString().equals("None") || 
-      surferForm("slug").value.toString().equals("") || surferForm("slug").hasErrors) { 
-  
+
+  @if(slugExists) {
   @slug(surferForm("slug"),
+        label = "Slug",
+        placeholder = "exists",
+        help = "Slug field cannot be edited for an existing surfer.")
+  } else { 
+    @slug(surferForm("slug"),
         label = "Slug",
         placeholder = "surfername",
         help = "Letters and digits to be used to identify this surfer in URLs, "
-               +"i.e. http://surferpedia.com/surfer/surfername")
-  } else {
-
-  @slug(surferForm("slug"),
-        label = "Slug",
-        placeholder = "surfername",
-        help = "Slug field cannot be edited for an existing surfer.")
-  }  
+               +"i.e. http://surferpedia.com/surfer/surfername")}    
 
   @bootstrap3.select(surferForm("surferType"),
                      label = "Surfer type",

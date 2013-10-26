@@ -46,7 +46,8 @@ public class Application extends Controller {
   
   /**
    * Manages a surfer's information.
-   * @param slug The slug of the surfer to manage.
+   * Passes the boolean 'true' to the manageSurfer page because a slug already exists.
+   * @param slug The slug of the surfer to manage. 
    * @return The new surfer form page, pre filled with the surfer's information.
    */
   public static Result manageSurfer(String slug) {
@@ -54,18 +55,19 @@ public class Application extends Controller {
     String surfType = SurferDB.getSurfer(slug).getSurferType();
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(surfType);
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
-    Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
-    return ok(ManageSurfer.render(formData, surferTypeMap));
+    Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);    
+    return ok(ManageSurfer.render(formData, surferTypeMap, true));
    }
   
   /**
    * Returns add new surfer page.
+   * Passes the boolean 'false' to the manageSurfer page because a slug may not exist.
    * @return The add surfer page.
    */  
   public static Result newSurfer() {
     Form<SurferFormData> formData = Form.form(SurferFormData.class);
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
-    return ok(ManageSurfer.render(formData, surferTypeMap));
+    return ok(ManageSurfer.render(formData, surferTypeMap, false));
   }  
   
   /**
@@ -76,7 +78,7 @@ public class Application extends Controller {
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
       Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
-      return badRequest(ManageSurfer.render(formData, surferTypeMap));
+      return badRequest(ManageSurfer.render(formData, surferTypeMap, false));
     }
     else {
       SurferFormData data = formData.get();

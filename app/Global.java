@@ -26,7 +26,7 @@ public class Global extends GlobalSettings {
     
     SurferDB.addSurfer(new SurferFormData("Eddie Aikau", "Haleiwa, HI", "Lifeguard of the Year", 
                                            "https://s3.amazonaws.com/tribeca_cms_production/uploads/uploads/film/"
-                                          +"photo_1/51471ed0c07f5d4659000002/large_Hawaiian_2_PUBS.jpg",
+                                          + "photo_1/51471ed0c07f5d4659000002/large_Hawaiian_2_PUBS.jpg",
                                            "http://s4.hubimg.com/u/2241487_f260.jpg", 
                                            biotext, 
                                            "eddieaikau", 

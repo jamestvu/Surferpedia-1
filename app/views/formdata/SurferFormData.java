@@ -3,7 +3,6 @@ package views.formdata;
 import java.util.ArrayList;
 import java.util.List;
 import models.Surfer;
-import models.SurferDB;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import play.data.validation.ValidationError;
@@ -130,15 +129,22 @@ public class SurferFormData {
       errors.add(new ValidationError("slug", "Slug is required."));
     }
     
+    /**
+    if (SurferDB.slugExists(slug)) {
+      System.out.println("slug error here");
+      errors.add(new ValidationError("slug", "Slug exists, try again."));
+    }
+    **/
+    
+    /**
     List<Surfer> testList = SurferDB.getSurfers();
     
     for(Surfer surfer : testList) {
       if(surfer.getSlug().equals(slug)) {
-        System.out.println("surfer slug " + surfer.getSlug());
-        System.out.println("slug " + slug);
         errors.add(new ValidationError("slug", "Slug already exists. Pick another."));
       }
     }
+    **/
     
     if (!SurferTypes.isType(surferType)) {
       errors.add(new ValidationError("surferType", "Surfer type is invalid"));      
