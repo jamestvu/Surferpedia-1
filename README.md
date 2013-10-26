@@ -1,17 +1,22 @@
-![screenshot](https://raw.github.com/jortal/ICS314/master/Surferpedia/doc/github_cover.png)
+![screenshot](https://raw.github.com/jortal/Surferpedia/dynamic/doc/github_cover.png)
 
 Overview
 --------
 
 A [Play application](http://www.playframework.com/) that provides an encyclopedia of surfers.
 
+![screenshot](https://raw.github.com/jortal/Surferpedia/dynamic/doc/surf-dynamic-1.png)
+![screenshot](https://raw.github.com/jortal/Surferpedia/dynamic/doc/surf-dynamic-2.png)
+![screenshot](https://raw.github.com/jortal/Surferpedia/dynamic/doc/surf-dynamic-3.png)
+![screenshot](https://raw.github.com/jortal/Surferpedia/dynamic/doc/surf-dynamic-4.png)
+
 This application is no longer static. Now you can create surfers, edit/manage existing surfers or even delete 
 the surfers from the database. The surfer pages are created dynamically, based on user input.
 
+![screenshot](https://raw.github.com/jortal/Surferpedia/dynamic/doc/surf-dynamic-1.png)
+
 There are three surfers initially in the database, used to help develop the application. One of each type of surfer
 are created (one male, one female, one grom).
-
-
 
 Installation
 ------------
@@ -30,4 +35,4 @@ On the individual surfer pages, use the edit link to edit the surfer's informati
 Credits
 -------
 
-Thanks to ICS 314, Fall 2013 and (Rob Namahoe)[https://github.com/RobNamahoe/ (person whom I collaborated with for this assignment)
+Thanks to ICS 314, Fall 2013 and [Rob Namahoe](https://github.com/RobNamahoe/) (person whom I collaborated with for this assignment)
