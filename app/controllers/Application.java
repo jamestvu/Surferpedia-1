@@ -1,5 +1,7 @@
 package controllers;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Map;
 import play.data.Form;
 import play.mvc.Controller;
@@ -7,8 +9,13 @@ import play.mvc.Result;
 import views.html.Index;
 import views.html.ManageSurfer;
 import views.html.ShowSurfer;
+<<<<<<< HEAD
 import views.html.Updates;
+=======
+import models.Surfer;
+>>>>>>> 86ba2df1f26bbb94610c3616bc39b7e80b5ba2a6
 import models.SurferDB;
+import models.UpdateDB;
 import views.formdata.SurferFormData;
 import views.formdata.SurferTypes;
 /**
@@ -16,6 +23,7 @@ import views.formdata.SurferTypes;
  */
 public class Application extends Controller {
 
+  
   /**
    * Returns the index page with the carousel. 
    * @return The Surferpedia home page. 
@@ -45,6 +53,12 @@ public class Application extends Controller {
    * @return The index page.
    */
   public static Result deleteSurfer(String slug) {
+    Surfer surfer = SurferDB.getSurfer(slug);
+    
+    Date curr = new Date();
+    String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
+    UpdateDB.addUpdate(date, surfer.getName(), "Delete");
+    
     SurferDB.deleteSurfer(slug);
     return ok(Index.render(""));
   }  
@@ -61,6 +75,11 @@ public class Application extends Controller {
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(surfType);
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);    
+    
+    Date curr = new Date();
+    String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
+    UpdateDB.addUpdate(date, data.name, "Edit");
+    
     return ok(ManageSurfer.render(formData, surferTypeMap, true));
    }
   
@@ -72,6 +91,11 @@ public class Application extends Controller {
   public static Result newSurfer() {
     Form<SurferFormData> formData = Form.form(SurferFormData.class);
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
+    
+    Date curr = new Date();
+    String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
+    UpdateDB.addUpdate(date, formData.name(), "New");
+    
     return ok(ManageSurfer.render(formData, surferTypeMap, false));
   }  
   
