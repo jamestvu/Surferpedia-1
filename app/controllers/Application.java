@@ -7,6 +7,7 @@ import play.mvc.Result;
 import views.html.Index;
 import views.html.ManageSurfer;
 import views.html.ShowSurfer;
+import views.html.Updates;
 import models.SurferDB;
 import views.formdata.SurferFormData;
 import views.formdata.SurferTypes;
@@ -21,6 +22,10 @@ public class Application extends Controller {
    */
   public static Result index() {
     return ok(Index.render("Welcome to Surferpedia."));
+  }
+  
+  public static Result updates() {
+    return ok(Updates.render(""));
   }
   
   /**
