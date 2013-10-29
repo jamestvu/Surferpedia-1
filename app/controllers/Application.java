@@ -9,11 +9,8 @@ import play.mvc.Result;
 import views.html.Index;
 import views.html.ManageSurfer;
 import views.html.ShowSurfer;
-<<<<<<< HEAD
 import views.html.Updates;
-=======
 import models.Surfer;
->>>>>>> 86ba2df1f26bbb94610c3616bc39b7e80b5ba2a6
 import models.SurferDB;
 import models.UpdateDB;
 import views.formdata.SurferFormData;
@@ -33,7 +30,7 @@ public class Application extends Controller {
   }
   
   public static Result updates() {
-    return ok(Updates.render(""));
+    return ok(Updates.render(UpdateDB.getUpdate()));
   }
   
   /**
@@ -90,12 +87,7 @@ public class Application extends Controller {
    */  
   public static Result newSurfer() {
     Form<SurferFormData> formData = Form.form(SurferFormData.class);
-    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
-    
-    Date curr = new Date();
-    String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
-    UpdateDB.addUpdate(date, formData.name(), "New");
-    
+    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();    
     return ok(ManageSurfer.render(formData, surferTypeMap, false));
   }  
   
@@ -112,6 +104,9 @@ public class Application extends Controller {
     else {
       SurferFormData data = formData.get();
       SurferDB.addSurfer(data);
+      Date curr = new Date();
+      String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
+      UpdateDB.addUpdate(date, data.name, "Create");      
       return ok(ShowSurfer.render(formData));  
     }
   }

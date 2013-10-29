@@ -1,4 +1,4 @@
-@(message: String)
+@(updates: List[Update])
 
 @import helper._
 @import bootstrap3._ 
@@ -15,13 +15,15 @@
                 <th>Surfer</th>
             </tr>
         </thead>
-        
+
+        @for(update <- updates) {
         <tr>
-            <td>contact.getFirstName()</td>
-            <td>contact.getLastName()</td>
-            <td>contact.getTelephone()</td>
+          <td>@update.getTime()</td>
+          <td>@update.getPage()</td>
+          @if(update.getName().equals("") && !update.getPage().equals("")) { 
+            <td>empty</td> } else { <td>@update.getName()</td> }
         </tr>
-        
+        }
     </table>
 </div>
 }
