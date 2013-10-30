@@ -21,11 +21,33 @@
               <p><strong>Biography</strong>: @surferForm("bio").value</p>
                
               <a href="@routes.Application.manageSurfer(surferForm("slug").value)" class="pull-left">Edit</a> 
-              <a href="@routes.Application.deleteSurfer(surferForm("slug").value)" class="pull-right">Delete</a>
+              <a data-toggle="modal" href="#delModal" class="pull-right">Delete</a>
               <br>               
             </div>
         </div>
     </div>
   }
+    <div class="modal fade" id="delModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Really delete surfer?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                        data-dismiss="modal">Cancel</button>
+                    <a href="@routes.Application.deleteSurfer(surferForm("slug").value)" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </div>
 }
