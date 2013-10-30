@@ -2,6 +2,7 @@ package controllers;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import play.data.Form;
 import play.mvc.Controller;
@@ -15,6 +16,8 @@ import models.SurferDB;
 import models.UpdateDB;
 import views.formdata.SurferFormData;
 import views.formdata.SurferTypes;
+import views.formdata.FootstyleTypes;
+
 /**
  * Implements the controllers for this application.
  */
@@ -70,6 +73,7 @@ public class Application extends Controller {
     slug = slug.trim();
     String surfType = SurferDB.getSurfer(slug).getSurferType();
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(surfType);
+    List<String> footTypeList = FootstyleTypes.getFootTypes();
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);    
     
@@ -77,7 +81,7 @@ public class Application extends Controller {
     String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
     UpdateDB.addUpdate(date, data.name, "Edit");
     
-    return ok(ManageSurfer.render(formData, surferTypeMap, true));
+    return ok(ManageSurfer.render(formData, surferTypeMap, footTypeList, true));
    }
   
   /**
@@ -87,8 +91,9 @@ public class Application extends Controller {
    */  
   public static Result newSurfer() {
     Form<SurferFormData> formData = Form.form(SurferFormData.class);
-    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();    
-    return ok(ManageSurfer.render(formData, surferTypeMap, false));
+    Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
+    List<String> footTypeList = FootstyleTypes.getFootTypes();
+    return ok(ManageSurfer.render(formData, surferTypeMap, footTypeList, false));
   }  
   
   /**
@@ -99,7 +104,8 @@ public class Application extends Controller {
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
       Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
-      return badRequest(ManageSurfer.render(formData, surferTypeMap, false));
+      List<String> footTypeList = FootstyleTypes.getFootTypes();      
+      return badRequest(ManageSurfer.render(formData, surferTypeMap, footTypeList, false));
     }
     else {
       SurferFormData data = formData.get();

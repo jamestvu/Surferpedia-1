@@ -12,6 +12,7 @@ public class Surfer {
   private String bio;
   private String slug;
   private String surferType;
+  private String foot;
   
   /**
    * Creates a new surfer.  
@@ -25,7 +26,7 @@ public class Surfer {
    * @param surferType The surfer's type.
    */
   public Surfer(String name, String home, String awards, String carouselURL, String bioURL,
-                String bio, String slug, String surferType) {
+                String bio, String slug, String surferType, String foot) {
     
     this.setName(name);
     this.setHome(home);
@@ -35,7 +36,7 @@ public class Surfer {
     this.setBio(bio);
     this.setSlug(slug);
     this.setSurferType(surferType);
-    
+    this.setFoot(foot);
   }
 
   /**
@@ -157,5 +158,13 @@ public class Surfer {
   public void setSurferType(String surferType) {
     this.surferType = surferType;
   }
-  
+
+  public String getFoot() {
+    return foot;
+  }
+
+  public void setFoot(String foot) {
+    this.foot = foot;
+  }
+
 }

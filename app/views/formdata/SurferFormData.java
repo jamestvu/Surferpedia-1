@@ -31,7 +31,8 @@ public class SurferFormData {
   public String slug = "";
   /** Surfer type form field. **/
   public String surferType = "";
-  
+  /** Surfer foot form field. **/
+  public String foot = "";
   
   /** No argument constructor. **/
   public SurferFormData() {
@@ -51,7 +52,7 @@ public class SurferFormData {
    */
   
   public SurferFormData(String name, String home, String awards, String carouselURL, String bioURL,
-                         String bio, String slug, String surferType) {
+                         String bio, String slug, String surferType, String foot) {
     this.name = name;
     this.home = home;
     this.awards = awards;
@@ -60,6 +61,7 @@ public class SurferFormData {
     this.bio = bio;
     this.slug = slug;
     this.surferType = surferType;
+    this.foot = foot;
   }
 
   /**
@@ -76,6 +78,7 @@ public class SurferFormData {
     this.bio = surfer.getBio();
     this.slug = surfer.getSlug();
     this.surferType = surfer.getSurferType();
+    this.foot = surfer.getFoot();
   }
 
   /**
