@@ -5,6 +5,7 @@
  */
 import play.GlobalSettings;
 import models.SurferDB;
+import models.UserInfoDB;
 import views.formdata.SurferFormData;
 import play.Application;
 
@@ -19,6 +20,8 @@ public class Global extends GlobalSettings {
    * @param app The surfer application.
    */
   public void onStart(Application app) {
+
+    UserInfoDB.addUserInfo("John Smith", "smith@example.com", "password");
     
     String biotext = "Edward Ryan Makua Hanai Aikau (May 4, 1946 - March 17, 1978) was a well-known "
         + "Hawaiian lifeguard and surfer. As the first lifeguard at Waimea Bay on the island of Oahu, "

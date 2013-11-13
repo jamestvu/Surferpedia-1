@@ -1,9 +1,9 @@
-@(updates: List[Update])
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, updates: List[Update])
 
 @import helper._
 @import bootstrap3._ 
 
-@Main("Surfer's Page") {
+@Main(page, isLoggedIn, userInfo) {
 
 <div class="container">
     <h2>List of updates to Surferpedia</h2>

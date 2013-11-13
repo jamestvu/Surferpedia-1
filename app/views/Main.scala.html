@@ -1,4 +1,4 @@
-@(page: String)(content: Html)
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo)(content: Html)
 
 <!DOCTYPE html>
 
@@ -72,9 +72,20 @@
                           }
                         </ul>
                     </li>
+                    @if(isLoggedIn) {
                     <li><a href="@routes.Application.newSurfer()">New</a><li>
-                    <li><a href="@routes.Application.updates()">Updates</a></li>                                                
+                    <li><a href="@routes.Application.updates()">Updates</a></li>
+                    }                                                
                 </ul>
+                @if(!isLoggedIn) {
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="@routes.Application.login()">Login</a></li>
+                </ul>
+                } else {
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="@routes.Application.logout()">Logout</a></li>
+                </ul>
+                }
             </div>
         </div>
     </div>

@@ -1,10 +1,11 @@
 @(surferForm: Form[views.formdata.SurferFormData],
-  surferTypeMap: Map[String, Boolean], footTypeList: List[String], slugExists: Boolean)
+  surferTypeMap: Map[String, Boolean], footTypeList: List[String], slugExists: Boolean,
+  page: String, isLoggedIn: Boolean, userInfo: UserInfo)
 
 @import helper._
 @import bootstrap3._
 
-@Main("Managing Surfers") {
+@Main(page, isLoggedIn, userInfo) {
 
 <div class="container" style="margin-top:20px">
   @form(routes.Application.postSurfer(), 'class -> "form-horizontal") {
