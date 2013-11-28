@@ -142,6 +142,7 @@ public class Application extends Controller {
     else {
       SurferFormData data = formData.get();
       SurferDB.addSurfer(data);
+
       Date curr = new Date();
       String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
       UpdateDB.addUpdate(date, data.name, "Create");

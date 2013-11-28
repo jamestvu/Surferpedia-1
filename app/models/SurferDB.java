@@ -23,8 +23,10 @@ public class SurferDB {
    */
   public static Surfer addSurfer(SurferFormData formData) {
     String slug = formData.slug;
+    String country = formData.country;
     Surfer surfer = new Surfer(formData.name, formData.home, formData.awards, formData.carouselURL,
-                               formData.bioURL, formData.bio, formData.slug, formData.surferType, formData.foot);
+                               formData.bioURL, formData.bio, formData.slug, formData.surferType,
+                               formData.foot, country);
     surfers.put(slug, surfer);
     return surfer;
   }

@@ -13,6 +13,7 @@ public class Surfer {
   private String slug;
   private String surferType;
   private String foot;
+  private String country;
   
   /**
    * Creates a new surfer.  
@@ -26,7 +27,7 @@ public class Surfer {
    * @param surferType The surfer's type.
    */
   public Surfer(String name, String home, String awards, String carouselURL, String bioURL,
-                String bio, String slug, String surferType, String foot) {
+                String bio, String slug, String surferType, String foot, String country) {
     
     this.setName(name);
     this.setHome(home);
@@ -37,6 +38,7 @@ public class Surfer {
     this.setSlug(slug);
     this.setSurferType(surferType);
     this.setFoot(foot);
+    this.setCountry(country);
   }
 
   /**
@@ -165,6 +167,39 @@ public class Surfer {
 
   public void setFoot(String foot) {
     this.foot = foot;
+  }
+
+  public String getCountry() {
+    return country;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+    
+    /**
+     * Check various country spellings here.
+     * This is just one way to do it, the code will probably be pretty messy if there are a lot of if statements.
+     */
+    
+    if (country.equalsIgnoreCase("USA")) {
+      this.country = "United States";
+    }    
+    
+    /**
+     * Switch statement example
+     
+    switch (country.toLowerCase()) {
+      case "usa":
+        this.country = "United States";
+        break;
+      case "cn":
+        this.country = "China";
+        break;
+      case "jp":
+        this.country = "Japan";
+        break;
+    }
+    **/
   }
 
 }

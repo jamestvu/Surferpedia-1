@@ -33,6 +33,8 @@ public class SurferFormData {
   public String surferType = "";
   /** Surfer foot form field. **/
   public String foot = "";
+  /** Surfer country form field. **/
+  public String country = "";
   
   /** No argument constructor. **/
   public SurferFormData() {
@@ -49,10 +51,12 @@ public class SurferFormData {
    * @param bio The bio text.
    * @param slug The slug.
    * @param surferType The type of surfer.
+   * @param foot The foot type.
+   * @param country The country.
    */
   
   public SurferFormData(String name, String home, String awards, String carouselURL, String bioURL,
-                         String bio, String slug, String surferType, String foot) {
+                         String bio, String slug, String surferType, String foot, String country) {
     this.name = name;
     this.home = home;
     this.awards = awards;
@@ -62,6 +66,7 @@ public class SurferFormData {
     this.slug = slug;
     this.surferType = surferType;
     this.foot = foot;
+    this.country = country;
   }
 
   /**
@@ -79,6 +84,7 @@ public class SurferFormData {
     this.slug = surfer.getSlug();
     this.surferType = surfer.getSurferType();
     this.foot = surfer.getFoot();
+    this.country = surfer.getCountry();
   }
 
   /**
@@ -114,7 +120,11 @@ public class SurferFormData {
       errors.add(new ValidationError("bio", "Bio paragraph is required."));
     }
 
-
+    if (country == null || country.length() == 0) {
+      errors.add(new ValidationError("country", "Country is required."));
+      country = "united states";
+    }
+    
     /**
      * Slug validation. Checks if there any special characters and throws and error if there are any.
      * Special characters are anything that is not alphanumeric.

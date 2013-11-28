@@ -33,7 +33,7 @@ public class Global extends GlobalSettings {
                                            "http://s4.hubimg.com/u/2241487_f260.jpg", 
                                            biotext, 
                                            "eddieaikau", 
-                                           "Male", "Regular"));
+                                           "Male", "Regular", "USA"));
    
     biotext = "Joyce Hoffman (born 1946/47) is an American surfer, considered a woman's pioneer "
         + "in her sport.She is often regarded as the first female international surfing star and "
@@ -43,7 +43,7 @@ public class Global extends GlobalSettings {
         "First female to surf the Banzai Pipeline in Hawaii, 1968", 
         "http://www.surfingwalkoffame.com/images/woman/Hoffman.jpg",
         "http://media.hamptonroads.com/cache/files/images/blogs/128341.jpg",
-        biotext, "joycehoffman", "Female", "Regular"));
+        biotext, "joycehoffman", "Female", "Regular", "USA"));
 
     biotext = "What sets Jake apart from the current crop of young talent is his drive to excel in "
         + "his surfing, and whatever else he takes aim at. He's fiercely competitive, winning the "
@@ -57,7 +57,7 @@ public class Global extends GlobalSettings {
         "Winner of the Under-12 Division, Surfing America Championships", 
         "http://stwww.surfingmagazine.com/wp-content/blogs.dir/1/files/2011/02/JakeMarshall01-677x442.jpg",
         "http://www.surfingamerica.org/wp-content/uploads/2011/01/JakeMarshall_AM7H9425-2.jpg", 
-        biotext, "jakemarshall", "Grom", "Regular"));
+        biotext, "jakemarshall", "Grom", "Regular", "USA"));
     
   }
 }
