@@ -35,17 +35,11 @@ public class Application extends Controller {
    */
   // @Security.Authenticated(Secured.class)  
   public static Result index() {
-    /**
-    UserInfo userInfo = UserInfoDB.getUser(request().username());
+    UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
-    //System.out.println(isLoggedIn + " " + userInfo.getEmail());    
-    if (isLoggedIn) {
-      return ok(Index.render("Home", isLoggedIn, userInfo));
-    }
-    */
-    UserInfo userInfo = UserInfoDB.getUser(request().username());
-    Boolean isLoggedIn = (userInfo != null);
+    
     return ok(Index.render("Home", isLoggedIn, userInfo));
+ 
   }
   
   @Security.Authenticated(Secured.class)  
@@ -61,8 +55,8 @@ public class Application extends Controller {
    * @return The page of the surfer.
    */
   public static Result getSurfer(String slug) {
-    UserInfo userInfo = UserInfoDB.getUser(request().username());
-    Boolean isLoggedIn = (userInfo != null);    
+    UserInfo userInfo = Secured.getUserInfo(ctx());
+    Boolean isLoggedIn = (userInfo != null);
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
     return ok(ShowSurfer.render(formData, "Surfer", isLoggedIn, userInfo));
