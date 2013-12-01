@@ -267,5 +267,138 @@ public class Global extends GlobalSettings {
         "Male",
         "Regular",
         "USA"));
+    
+    //Groms ---------------------------------------------------------------------------------------------
+    //1
+    biotext = "Madison has found plenty of success in the Mid Atlantic in the 2013 season. At the Nags Head event 3 in chest high surf, she cashed in on the fun waves posting the top wave score and won both the Open & Explorer Womens";
+    SurferDB.addSurfer(new SurferFormData("Madison Huckabee",
+        "Wrightsville Beach, North Carolina",
+        "Open & Explorer Womens",
+        "http://www.nssa.org/upload/thumb_150x150_madisoncrop.jpg",
+        "http://www.nssa.org/upload/thumb_150x150_madisoncrop.jpg",
+        biotext,
+        "madisonhuckabee",
+        "Grom",
+        "Regular",
+        "USA"));
+    //2
+    biotext = "Many young surfers have the potential to make an impact on our sport, but none look more poised to do so"
+        + " than Jake Marshall. Raised on the rippable beachbreaks and reefs of San Diego North County, Jake has developed "
+        + "a solid base of smooth rail work as well as the kind of flair that few 14-year-old surfers can match. His progression "
+        + "is due in no small part to the numerous world-class talents in his neighborhood that have taught him a thing or"
+        + " two about tearing Seaside apart. see Rob Machado, Josh Kerr, Damien Hobgood, and Taylor Knox out all the time,"
+        + " and its really fun to surf with guys on that level look at them and think, thats how I have to surf if I want"
+        + " to make the Tour one day.That really helps me push my limits, hes had remarkable success in a jersey, including"
+        + " a recent win at the U.S. Surfing Championships at Lower Trestles. But while surf stardom seems inevitable for "
+        + "Jake, hes still just a kid, and knows where his priorities should be. surf and try to improve all the time, but "
+        + "I still put a lot of emphasis on school, know that education is really important, and if surfing doesnt work out,"
+        + " its always good to have a backup plan";
+    
+    SurferDB.addSurfer(new SurferFormData("Jake Marshall",
+        "Encinitas, California",
+        "13-14 SW Open Season,",
+        "http://www.surfingamerica.org/wp-content/uploads/2011/01/JakeMarshall_MG_3530-3.jpg",
+        "http://stwww.surfingmagazine.com/wp-content/blogs.dir/1/files/2011/02/JakeMarshall01-677x442.jpg",
+        biotext,
+        "jakemarshall",
+        "Male",
+        "Regular",
+        "USA"));
+    //3
+    biotext = "Without a doubt, Tyler has HB’s infamous southside wired. Not only did the Newport standout win his first Nationals here in 2011 triumphing in the Open Mini Groms, but he stamped his authority at this weekend’s SW Open event 2 taking an impressive win in the hotly contested Juniors division.";
+    SurferDB.addSurfer(new SurferFormData("Tyler Gunter",
+        "Newport Beach, California",
+        "2008,2009 WSA Championships, 2011 Nationals Mini groms",
+        "http://atwatercollection.com/images/tg1.png",
+        "http://stwww.surfingmagazine.com/wp-content/blogs.dir/1/files/2012/11/tyler-gunter.jpg",
+        biotext,
+        "tylergunter",
+        "Male",
+        "Regular",
+        "USA"));
+    //4
+    biotext = "Contest results don’t get more perfect than this! In small, challenging conditions at the Mid Atlantic Outer Banks event in Nags Head, East Coast Champion Luke Gordon put forth one heck of a stellar performance winning Open Mens, Open Juniors, Explorer Juniors & Explorer Boys";
+    SurferDB.addSurfer(new SurferFormData("Luke Gordon",
+        "Pawleys Island, South Carolina",
+        "Rip Curl GromSearch National Championships, Nags Head",
+        "http://i.cdn-surfline.com/surfnews/images/2012/10_october/SAPrime_AC/full/LukeGordon_AM7H6993.jpg",
+        "http://www.surfline.com/surfnews/images/2012/05_may/SAPrime_Nags/full/LukeGordon_IMG_2533.jpg",
+        biotext,
+        "lukegordon",
+        "Male",
+        "Regular",
+        "USA"));
+    //5
+    biotext = "Mahina came out firing on all cylinders in her debut contest of the 2013-14 NSSA Hawaii season with a double win in the Open & Explorer Womens divisions at the Lahaina Harbor contest. She was pushing the level with her powerful turns in each heat. Mahina continues to show that she is one of the most talented and dynamic young female surfers in the nation.";
+    SurferDB.addSurfer(new SurferFormData("Mahina Maeda",
+        "Sunset Beach, Hawaii",
+        "2013-14 NSSA Hawaii season with a double win in the Open & Explorer Womens divisions",
+        "http://www.nssa.org/upload/thumb_200x150_photo%20%281%29.jpg",
+        "http://www.sexwax.com/riders/mahina_maeda_sw_web_2%281%29.jpeg",
+        biotext,
+        "mahinamaeda",
+        "Female",
+        "Regular",
+        "USA"));
+    //6
+    biotext = "Malia put together a huge year taking 3 conference titles in Open Girls, Explorer Girls & Womens. She sealed the Open Girls in perfect surf at Lowers and the Explorer titles in small peaks at Crystal Pier. Her surfing has shown big improvement and versatility as proven by her victories in diverse conditions";
+    SurferDB.addSurfer(new SurferFormData("Malia Osterkamp  ",
+        "San Clemente, California",
+        "Open Girls, Explorer Girls & Womens",
+        "http://www.nssa.org/upload/thumb_200x150_mosterkampsow5-13.jpg",
+        "http://www.surfsss.org/wp-content/uploads/2012/05/malia_osterkamp.jpg",
+        biotext,
+        "maliaosterkamp",
+        "Female",
+        "Regular",
+        "USA"));
+    //7
+    biotext = "   Seth capitalized on the fun 2-4 foot surf at Kewalos during the Hawaii Regional Championships. He claimed 3 titles in Open Juniors, Explorer Juniors & the premier Open Mens. Look out for Seth at the Nationals after this dominating performance";
+    SurferDB.addSurfer(new SurferFormData("Seth Moniz",
+        "Honolulu, Hawaii",
+        "2013 King of the Groms,3 titles in Open Juniors, Explorer Juniors & the premier Open Mens",
+        "http://1.bp.blogspot.com/_Xid45Cz66D8/SxTNWmFgAOI/AAAAAAAAAf4/zKIrCYtxw-M/s1600/seth:spenc:backd09.jpg",
+        "http://www.novusswell.com/wp-content/uploads/2012/05/Screen-shot-2012-05-06-at-11.25.10-AM.png",
+        biotext,
+        "sethmoniz",
+        "Male",
+        "Regular",
+        "USA"));
+    //8
+    biotext = "Tommy put on a monster of a performance to kick off the 13/14 Gold Coast Season taking double wins in event 1 in the Menehuene & Boys divisions. He returned the next day for event 2 and backed it up with another Menehuene win earning a huge 18.8 total score in the final-the highest of the weekend";
+    SurferDB.addSurfer(new SurferFormData("Tommy McKeown",
+        "Oxnard, California",
+        "13/14 Gold Coast Season taking double wins in event 1 in the Menehuene & Boys divisions",
+        "http://b.vimeocdn.com/ts/259/046/259046810_640.jpg",
+        "http://www.nssa.org/upload/thumb_200x150_photo%288%29.jpg",
+        biotext,
+        "tommymckeown",
+        "Male",
+        "Regular",
+        "USA"));
+    //9
+    biotext = "Noah was pushing the performance envelope at the Newport Open surfing well beyond his years. The kid was on fire unleashing man hacks, airs, big carves and even pulled into a few clean barrels winning all of his heats and taking his second straight Open Boys victory";
+    SurferDB.addSurfer(new SurferFormData("Noah Hill",
+        "Lahaina, Hawaii",
+        "Open Boys,2013",
+        "https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash3/p480x480/555819_10152731956140125_281550280_n.jpg",
+        "http://www.oneillclothing.com/blog/wp-content/uploads/2013/07/noah_5.jpg",
+        biotext,
+        "noahhill",
+        "Male",
+        "Regular",
+        "USA"));
+    //10
+    biotext = "Sam is the newest hot grom on the rise in the Norcal territory. At the Northwest doubleheader at Santa Cruz’s Pleasure Point & the Hook, he took command of the Boy’s division winning both finals. His surfing has greatly progressed this year as noted by his 4 straight win.";
+    SurferDB.addSurfer(new SurferFormData("Sam Coffey",
+        "Santa Cruz, California",
+        "Santa Cruz Boys division",
+        "http://www.nssa.org/photogallery/gallery/2012-13_SEASON/SolomonSamNWSC3-13web.jpg",
+        "http://www.santacruzwaves.com/wordpress/wp-content/uploads/428b3a623c406a01f2a4360fbbcceb96.jpg",
+        biotext,
+        "samcoffey",
+        "Male",
+        "Regular",
+        "USA"));
   }
 }
