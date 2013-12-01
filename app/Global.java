@@ -23,6 +23,7 @@ public class Global extends GlobalSettings {
 
     UserInfoDB.addUserInfo("John Smith", "smith@example.com", "password");
     
+    //Original 3 surfers
     String biotext = "Edward Ryan Makua Hanai Aikau (May 4, 1946 - March 17, 1978) was a well-known "
         + "Hawaiian lifeguard and surfer. As the first lifeguard at Waimea Bay on the island of Oahu, "
         + "he saved many lives and became well known as a big-wave surfer in his own right.";
@@ -59,6 +60,7 @@ public class Global extends GlobalSettings {
         "http://www.surfingamerica.org/wp-content/uploads/2011/01/JakeMarshall_AM7H9425-2.jpg", 
         biotext, "jakemarshall", "Grom", "Regular", "USA"));
     
+    //10 Female Surfers
     biotext =
         "Growing up in Hawaii, Megan quickly became one of the 'beach boys' and worked her way to a spot on the World Championship Tour ranks in 1998. She has been on the WCT ever since and in 2000 she was runner up for the world title. She has had many victories both in and out of the water. In October 2004 Megan won the WCT Rip Curl Malibu Pro and shot from 14th to 9th in the ratings. In 2002, she won the WCT Figueira Pro in Portugal, and in 2001 she won the WCT Roxy Pro in Fiji. Throughout her career she has had 5 other WCT victories.";
     
@@ -68,7 +70,7 @@ public class Global extends GlobalSettings {
         "http://i515.photobucket.com/albums/t357/BrEezEbaby08/Celebs/meganabubo.jpg", 
         biotext, "meganabubo", "Female", "Regular", "USA"));
     
-    biotext = "Lisa Andersen (born March 8, 1969, in [New York])[1] is a four-time world surfing champion from the United States. She won four titles in a row from 1994 to 1997. ASP Rookie of the year in 1987. Named by Sports Illustrated for Women as one of the 100 'Greatest Sportswomen of the Century'. Named 1998 Female Athlete of the Year by Conde'Nast Sports for Women magazine. Six time winner of Surfer Magazine's Readers Poll. She won the US amateur surfing title in 1987 and turned professional the following year. From 1994 to 1997 she won successive women's world titles before injury forced her to stop competing. She returned to the sport in 2000. She is married to Tim Shannon and has two children, Erica and Mason.";
+    biotext = "Lisa Andersen (born March 8, 1969, in [New York]) is a four-time world surfing champion from the United States. She won four titles in a row from 1994 to 1997. ASP Rookie of the year in 1987. Named by Sports Illustrated for Women as one of the 100 'Greatest Sportswomen of the Century'. Named 1998 Female Athlete of the Year by Conde'Nast Sports for Women magazine. Six time winner of Surfer Magazine's Readers Poll. She won the US amateur surfing title in 1987 and turned professional the following year. From 1994 to 1997 she won successive women's world titles before injury forced her to stop competing. She returned to the sport in 2000. She is married to Tim Shannon and has two children, Erica and Mason.";
     
     SurferDB.addSurfer(new SurferFormData("Lisa Andersen", "San Clemente, CA", 
         "Four-time world surfing champion, ASP Rookie of the Year (1987)", 
@@ -84,7 +86,7 @@ public class Global extends GlobalSettings {
         "http://1.bp.blogspot.com/_yzNMmCQCiFo/TPV9QtdsYUI/AAAAAAAAARE/ErijrLYPLrs/s640/christa+alves+babe.jpg", 
         biotext, "Christa Alves", "Female", "Regular", "USA"));
     
-    biotext = "Freida Zamba is a four-time world surfing champion from the United States. She won three titles in a row from 1984 to 1986, then won again in 1988.[1] She currently lives in north-east Florida. Frieda Zamba was the youngest female to win a pro tour contest and the youngest surfing world champion ever. She went on to win three titles in a row and then fought back to win a fourth. Outright dangerous in small to mid-size surf, Zamba crossed the performance chasm that separated male and female surfers in the 80’s and, based solely on performance, is regarded by many as the greatest female surfer ever.";
+    biotext = "Freida Zamba is a four-time world surfing champion from the United States. She won three titles in a row from 1984 to 1986, then won again in 1988. She currently lives in north-east Florida. Frieda Zamba was the youngest female to win a pro tour contest and the youngest surfing world champion ever. She went on to win three titles in a row and then fought back to win a fourth. Outright dangerous in small to mid-size surf, Zamba crossed the performance chasm that separated male and female surfers in the 80’s and, based solely on performance, is regarded by many as the greatest female surfer ever.";
     
     SurferDB.addSurfer(new SurferFormData("Freida Zamba", "Flagler Beach, FL", 
         "Four-time ASP World Surfing Champion, Five-time Surfer Poll Awards, East Coast Surfer Hall of Fame", 
@@ -139,6 +141,131 @@ public class Global extends GlobalSettings {
         "http://3.bp.blogspot.com/-O__hUWUwkZ0/UKPl2EZ0Y2I/AAAAAAAAABs/qxInyzkSCCU/s1600/Bethany+Meilani+Hamilton4.jpg",
         "http://static.grindtv.com/images/1/00/30/88/81/308881.jpg", 
         biotext, "bethanyhamilton", "Female", "Regular", "USA"));
-        
+    
+    //10 Male Surfers
+    //1
+    biotext = "John John Florence , the oldest of three children, grew up in Hale'iwa, in an ocean-side house at the Banzai Pipeline. He resides with his mother, Alexandra, and his two younger brothers Nathan and Ivan. He was introduced to surfing by Alexandra, who is a surfer herself. Florence claims he rode a surf board at the age of six months, wearing a life vest on his father John's board;[1] he was riding on his own by the age of three. He is known now for his spectacular aerial abilities";
+    SurferDB.addSurfer(new SurferFormData("John John Florence", "Honolulu, HI", 
+        "2003 1st NSSA Nationals Open Mini Grom, the 2005 1st NSSA Nationals Open Boy's, the 2005 NSSA Open Boys and the Explorer Menehune Champion", 
+        "http://a.espncdn.com/combiner/i?img=/photo/2013/0817/as_surf_jjf_2048.jpg&w=1200",
+        "http://aloharemedy.com/wp-content/uploads/2013/04/john-john-florence_fe.jpg", 
+        biotext, "johnflorence", "Male", "Goofy", "USA"));
+    //2
+    biotext = "In addition to the ASP tour, Slater has also competed in the X-Games (in 2003 and 2004). After " 
+        + "earlier being awarded the title prematurely as a result of a miscalculation by the ASP, on November 6, 2011" 
+        + " Slater officially won his eleventh ASP world title at the Rip Curl Pro Search San Francisco, by winning his"
+        + " 4th round heat. In May 2005, in the final heat of the Billabong Tahiti Pro contest at Teahupo'o, Slater "
+        + "became the first surfer ever to be awarded two perfect scores for a total 20 out of 20 points under the ASP "
+        + "two-wave scoring system. (The corresponding honor under the previous three-wave system belongs to fellow "
+        + "American Shane Beschen who achieved the feat in 1996.) He did it again on June 2013 at the quarter finals "
+        + "at the Volcom Fiji Pro with two perfect ten waves, only the fourth person in history to do so.[3] Since "
+        + "1990, Slater has been sponsored primarily by surfwear industry giant Quiksilver.[4] He exclusively rides "
+        + "Channel Islands surfboards equipped with his own signature series of FCS fins.";
+    SurferDB.addSurfer(new SurferFormData("Kelly Slater",
+        "Cocoa Beach, Florida",
+        "ASP World Tour Champion (11 times), Boost Mobile Pro (1st Place, 2007)",
+        "http://costaricasurfing.org/wp-content/uploads/2013/07/Kelly-Slater-1.jpg",
+        "http://www.athletepromotions.com/blog/wp-content/uploads/2013/08/kelly-slater.jpg",
+        biotext,
+        "kellyslater",
+        "Male",
+        "Regular",
+        "USA"));
+    //3
+    biotext = "Adrian 'Ace' Buchan (born 21 September 1982, Avoca Beach, Australia) is a professional Australian surfer. He was introduced to the ocean by his father at age four and since then he has won numerous World Junior Championships in the under 16 and 18 divisions. He is sponsored by Hurley International, JS Industries, Dragon eyewear, Gorilla Grip, \"Surf Dive 'n' Ski\" and \"Zentrom Quantum technology\".";
+    SurferDB.addSurfer(new SurferFormData("Adrian 'Ace' Buchan",
+        "Avoca Beach, Australia",
+        "2008 Quick Silver Pro France, 2013 Billabong Pro Teahupoo",
+        "http://craigsand.com/wp-content/uploads/galleries/post-1266/full/IMG_9095.jpg",
+        "http://cdn.c.photoshelter.com/img-get/I00008XoRjT2xhAo/s/860/860/Adrian-Buchan-Joli-FT5830.jpg",
+        biotext,
+        "adrianbuchan",
+        "Male",
+        "Goofy",
+        "Australia"));
+    //4
+    biotext = "Adriano \"Mineirinho\" De Souza (born February 13, 1987) is a Brazilian professional surfer who competes on the Association of Surfing Professionals Men's World Tour";
+    SurferDB.addSurfer(new SurferFormData("Adriano \"Mineirinho\" De Souza",
+        "Guaruja, Sao Paulo, Brasil",
+        "2013 Rip Curl Pro Bells Beach, 2011 Rip Curl Pro Portugal",
+        "http://2.bp.blogspot.com/-3VpAuI6MB2w/UZp5mgbUjjI/AAAAAAAB2Fk/Liz91pgSomQ/s1600/240509SF36-copie.jpg",
+        "http://4.bp.blogspot.com/-QH0CyNqHvTs/UZp5rVm69_I/AAAAAAAB2H0/Goh27iKVwJM/s1600/adriano-de-souza-portrait.jpg",
+        biotext,
+        "adrianodesouza",
+        "Male",
+        "Regular",
+        "Brasil"));
+    //5
+    biotext = "Philip Andrew Irons (July 24, 1978 – November 2, 2010) was an American professional surfer. Irons learned to surf on the dangerous and shallow reefs of the North Shore in Kauai, Hawaii. He and his family hosted the Annual Irons Brothers Pinetrees Classic, a contest for youngsters. The Governor of Hawaii declared February 13 forever \"Andy Irons Day\". He is the only surfer to have won a title at every venue on the ASP calendar.\nIrons died on November 2, 2010. He was found lying in bed on his back with the sheets pulled up to his chin, by two hotel staff after he had failed to respond to knock on the door and they went in to investigate. The Tarrant County Medical Examiner's Office concludes that Irons died from a cardiac arrest due to a severe blockage of a main artery of the heart. The official autopsy report lists also a second cause of death as “acute mixed drug ingestion”, listing alprazolam, methadone, benzoylecgonine (a metabolite of cocaine) and traces of methamphetamine as the drugs found in Andy`s body at the time of his death. Initial press releases cited Dengue fever as the cause of Irons' death; however, the autopsy report conducted by the Tarrant County Medical Examiner's office were negative for Dengue and other flavivirus. It is unclear why rumors that Dengue fever contributed to Irons' death proliferated";
+    SurferDB.addSurfer(new SurferFormData("Philip Andrew Irons",
+        "Kuai, Hawaii",
+        "2013 Rip Curl Pro Bells Beach, 2011 Rip Curl Pro Portugal",
+        "http://2.bp.blogspot.com/-3VpAuI6MB2w/UZp5mgbUjjI/AAAAAAAB2Fk/Liz91pgSomQ/s1600/240509SF36-copie.jpg",
+        "http://4.bp.blogspot.com/-QH0CyNqHvTs/UZp5rVm69_I/AAAAAAAB2H0/Goh27iKVwJM/s1600/adriano-de-souza-portrait.jpg",
+        biotext,
+        "philipirons",
+        "Male",
+        "Regular",
+        "USA"));
+    //6
+    biotext = "Bede Durbidge (born 23 February 1983) is an Australian professional surfer. He is one of the most promising surfers of the ASP World Tour. Durbo, Bej and The White Fijian are his nicknames";
+    SurferDB.addSurfer(new SurferFormData("Bede Durbridge",
+        "Brisbane, Queensland",
+        "2008 Hang Loose Santa Catarina, 2007 Rip Curl Pipeline Masters, 2006 Boost Mobile Pro",
+        "http://a4.espncdn.com/combiner/i?img=/photo/2013/0926/as_surf_jordy_2048.jpg&w=1200",
+        "http://s3.rockstarenergy.com/cache/384x475-RESIZE-100/2013/01/bede-durbidge-profile.jpg",
+        biotext,
+        "bededurbridge",
+        "Male",
+        "Regular",
+        "Australia"));
+    //7
+    biotext = "A 2-year-old Ben Bourgeois told his mother flatly, \"I wanna be a surfer.\" And he hasn't wavered since. Far from being blessed with an ideal surfing environment or an inordinate amount of natural talent, he used the attributes he was given -- a supportive family and a will to succeed -- and rose to the elite in competitive surfing, the Top 44 in the world, restoring Wrightsville Beach's place on the international map.";
+    SurferDB.addSurfer(new SurferFormData("Ben Bourgeois",
+        "Ocean City, New Jersey",
+        "1995 Quiksilver World Grommet Contest",
+        "http://cdn.business.transworld.net/files/2008/05/04/ben-bourgeois-surf.jpg",
+        "http://a3.espncdn.com/photo/2009/0430/as_surf_benny_shower_630.jpg",
+        biotext,
+        "benbourgeois",
+        "Male",
+        "Goofy",
+        "USA"));
+    //8
+    biotext = "It's impossible to picture Australian surf history without Bob McTavish. In a nation where the surfing culture slumbered for years beyond the Californian Malibu explosion, McTavish was one of the first to awaken. His willingness to devote himself to what seemed an outlandish outlaw sport paid off for the millions of Aussies who followed him -- and other such single-minded souls -- into the surf.";
+    SurferDB.addSurfer(new SurferFormData("Bob McTavish",
+        "Mackay, Northern Queensland",
+        "1966 World Contest",
+        "http://www.surf-shop.org/wp-content/uploads/2009/12/IMG_9700.jpg",
+        "http://epikoo.com/sites/default/files/bob3.jpg",
+        biotext,
+        "bobmctavish",
+        "Male",
+        "Goofy",
+        "Australia"));
+    //9
+    biotext = "Martinez began surfing at age 6. When he was old enough, he joined the National Scholastic Surfing Association (NSSA) where he went on to win a record seven national titles. After several injury prone years he joined the Association of Surfing Professionals in 2005. His first major title as a professional was the O'Neill Coldwater Classic in 2005. He joined the World Championship Tour in 2006, finishing the year with No. 5 ranking which earned him Rookie of the Year honors with wins in Teahupoo and Mundaka.[2] He also won in Mundaka in 2007 and In May 2009, Bobby won the Billabong Pro Tahiti.";
+    SurferDB.addSurfer(new SurferFormData("Bobby Martinez",
+        "Santa Barbara, California",
+        "Top 10 finisher on the ASP World Tour 2010",
+        "http://billabong.africanmediacentre.com/BBong_Pro_EMK09JBay/High_Res_Images/BB9%20-%20EMK%20-%20World%20Tour%20Stars/Bilp9%20-%20Bobby%20Martinez/Bobby%20Action1%20-Steve%20Robertson-ASP-CI%20via%20Getty%20Images.jpg",
+        "http://cdn.surf.transworld.net/files/2010/01/45.jpg",
+        biotext,
+        "bobbymartinez",
+        "Male",
+        "Goofy",
+        "USA"));
+    //10
+    biotext = "Duke Paoa Kahinu Mokoe Hulikohola Kahanamoku (August 24, 1890 – January 22, 1968) was a Hawaiian competition swimmer who was also known as an actor, lawman, early beach volleyball player and businessman credited with spreading the sport of surfing.[1] Kahanamoku was a five-time Olympic medalist in swimming.";
+    SurferDB.addSurfer(new SurferFormData("Duke Kahanamoku",
+        "Honolulu, Hawaii",
+        "3 Gold Medals and 2 Silver Medals in the Olympics for Swimming/Water Polo",
+        "https://www.google.com/search?q=duke+kahanamoku&rlz=1C1CHFX_enUS449US449&espv=210&es_sm=93&source=lnms&tbm=isch&sa=X&ei=xZmaUsTCGczzoAT25YDIBw&ved=0CAcQ_AUoAQ&biw=1920&bih=946&sei=g5qaUsWgJsHtoAS6lYDABw&gbv=2#es_sm=93&espv=210&gbv=2&q=duke+kahanamoku+surfing&tbm=isch&tbs=isz:l&facrc=_&imgdii=_&imgrc=403wo20_nW3ivM%3A%3BNERnGn32wAHvqM%3Bhttp%253A%252F%252Fwww.legendarysurfers.com%252Fsurf%252Fimages%252Fdiamondhead1943.jpg%3Bhttp%253A%252F%252Fwww.legendarysurfers.com%252Fsurf%252Flegends%252Fls12.shtml%3B1500%3B910",
+        "http://upload.wikimedia.org/wikipedia/commons/8/8b/Duke_P._Kahanamoku_(LOC)_(06652).jpg",
+        biotext,
+        "dukekahanamoku",
+        "Male",
+        "Regular",
+        "USA"));
   }
 }
