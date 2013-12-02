@@ -14,29 +14,33 @@ import views.formdata.SurferFormData;
 
 public class SurferDB {
 
-  private static Map<String, Surfer> surfers = new HashMap<>();
-
   /**
    * Adds a new surfer to the "database".
    * @param formData The surfer data
    * @return The created surfer
    */
-  public static Surfer addSurfer(SurferFormData formData) {
+  public static void addSurfer(SurferFormData formData){
     String slug = formData.slug;
     String country = formData.country;
-    Surfer surfer = new Surfer(formData.name, formData.home, formData.awards, formData.carouselURL,
-                               formData.bioURL, formData.bio, formData.slug, formData.surferType,
-                               formData.foot, country);
-    surfers.put(slug, surfer);
-    return surfer;
+    
+    if (slugExists(slug)) {
+      //throw new RuntimeException("slug exists");
+      
+    }
+    else {
+      Surfer surfer = new Surfer(formData.name, formData.home, formData.awards, formData.carouselURL,
+          formData.bioURL, formData.bio, formData.slug, formData.surferType,
+          formData.foot, country);
+      surfer.save();
+    }
   }
-
+  
   /**
    * Returns the list of surfers.
    * @return A list of surfers.
    */
   public static List<Surfer> getSurfers() {
-    return new ArrayList<>(surfers.values());
+    return Surfer.find().all();
   }
   
   /**
@@ -45,7 +49,7 @@ public class SurferDB {
    * @return The retrieved Slug.
    */
   public static Surfer getSurfer(String slug) {
-    Surfer surfer = surfers.get(slug);
+    Surfer surfer = Surfer.find().byId(slug);
     if (surfer == null) {
       throw new RuntimeException("Invalid ID: " + slug);
     }
@@ -57,6 +61,15 @@ public class SurferDB {
    * @param slug The slug of the surfer to delete.
    */
   public static void deleteSurfer(String slug) {
-    surfers.remove(slug);
+    Surfer.find().where().eq("slug", slug).findUnique().delete();
+  }
+  
+  /**
+   * Checks if a slug exists.
+   * @param slug the slug.
+   * @return true if slug exists.
+   */
+  public static boolean slugExists(String slug) {
+    return Surfer.find().where().eq("slug", slug).findUnique() != null;
   }
 }

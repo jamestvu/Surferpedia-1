@@ -1,19 +1,44 @@
 package models;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import play.db.ebean.Model;
+import play.db.ebean.Model.Finder;
 /**
  * 
  */
-public class Surfer {
+@Entity
+public class Surfer extends Model {
   
+  private static final long serialVersionUID = 1L;
+
   private String name;
   private String home;
   private String awards;
+  @Lob
   private String carouselURL;
+  @Lob
   private String bioURL;
+  @Lob
   private String bio;
+  @Id
   private String slug;
   private String surferType;
   private String foot;
   private String country;
+  
+  @ManyToOne
+  private UserInfo userInfo;
+  
+  /**
+   * The EBean ORM finder method for database queries.
+   * @return The finder method for products.
+   */
+  public static Finder<String, Surfer> find() {
+    return new Finder<String, Surfer>(String.class, Surfer.class);
+  }
   
   /**
    * Creates a new surfer.  
@@ -201,5 +226,20 @@ public class Surfer {
     }
     **/
   }
+
+  /**
+   * @return the userInfo
+   */
+  public UserInfo getUserInfo() {
+    return userInfo;
+  }
+
+  /**
+   * @param userInfo the userInfo to set
+   */
+  public void setUserInfo(UserInfo userInfo) {
+    this.userInfo = userInfo;
+  }
+
 
 }
