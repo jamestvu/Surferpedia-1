@@ -25,12 +25,16 @@ public class SurferDB {
     
     if (slugExists(slug)) {
       //throw new RuntimeException("slug exists");
-      
+      Surfer.find().where().eq("slug", slug).findUnique().delete();
+      Surfer surfer = new Surfer(formData.name, formData.home, formData.awards, formData.carouselURL,
+          formData.bioURL, formData.bio, formData.slug, formData.surferType,
+          formData.foot, country);
+      surfer.save();
     }
     else {
       Surfer surfer = new Surfer(formData.name, formData.home, formData.awards, formData.carouselURL,
           formData.bioURL, formData.bio, formData.slug, formData.surferType,
-          formData.foot, country);
+          formData.foot, country);      
       surfer.save();
     }
   }

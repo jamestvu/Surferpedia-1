@@ -202,17 +202,8 @@ public class Surfer extends Model {
     this.country = country;
     
     /**
-     * Check various country spellings here.
-     * This is just one way to do it, the code will probably be pretty messy if there are a lot of if statements.
-     */
-    
-    if (country.equalsIgnoreCase("USA")) {
-      this.country = "United States";
-    }    
-    
-    /**
-     * Switch statement example
-     
+     * Check various country abbreviations/spellings here.
+     */    
     switch (country.toLowerCase()) {
       case "usa":
         this.country = "United States";
@@ -223,8 +214,25 @@ public class Surfer extends Model {
       case "jp":
         this.country = "Japan";
         break;
+      case "fr":
+        this.country = "France";
+        break;
+      case "ca":
+        this.country = "Canada";
+        break;
+      case "br":
+        this.country = "Brazil";
+        break;
+      case "de":
+        this.country = "Germany";
+        break;
+      case "ws":
+        this.country = "Samona";
+        break;
+      case "gu":
+        this.country = "Guam";
+        break;
     }
-    **/
   }
 
   /**
