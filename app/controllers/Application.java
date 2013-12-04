@@ -13,6 +13,7 @@ import play.mvc.Security;
 import views.html.Index;
 import views.html.Login;
 import views.html.ManageSurfer;
+import views.html.SearchResults;
 import views.html.ShowSurfer;
 import views.html.Updates;
 import models.Surfer;
@@ -195,5 +196,10 @@ public class Application extends Controller {
     return redirect(routes.Application.index());
   }
   
+  public static Result getSearchResults()  {
+    UserInfo userInfo = Secured.getUserInfo(ctx());
+    Boolean isLoggedIn = (userInfo != null);
+    return ok(SearchResults.render("Home", isLoggedIn, userInfo));
+  }
   
 }
