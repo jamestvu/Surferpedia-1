@@ -80,7 +80,7 @@ public class SurferDB {
   
   /**
    * Returns a list of three random surfers.
-   * @return
+   * @return list of three surfers.
    */
   public static List<Surfer> getThreeRandomSurfers() {
     ArrayList<Surfer> surferList = new ArrayList<Surfer>();
