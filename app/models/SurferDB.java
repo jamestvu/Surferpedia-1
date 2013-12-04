@@ -70,7 +70,7 @@ public class SurferDB {
   }
   
   /**
-   * Checks if a slug exists.
+   * Checks if a slug exists..
    * @param slug the slug.
    * @return true if slug exists.
    */
