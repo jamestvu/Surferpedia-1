@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import views.formdata.SurferFormData;
 
 /**
@@ -75,5 +76,30 @@ public class SurferDB {
    */
   public static boolean slugExists(String slug) {
     return Surfer.find().where().eq("slug", slug).findUnique() != null;
+  }
+  
+  /**
+   * Returns a list of three random surfers.
+   * @return
+   */
+  public static List<Surfer> getThreeRandomSurfers() {
+    ArrayList<Surfer> surferList = new ArrayList<Surfer>();
+    List<Surfer> entireSurferList = SurferDB.getSurfers();
+    Random rand = new Random();
+    int randomNum = Math.abs(rand.nextInt(entireSurferList.size()));
+    int randomNum2 = Math.abs(rand.nextInt(entireSurferList.size()));
+    int randomNum3 = Math.abs(rand.nextInt(entireSurferList.size()));
+    while (randomNum == randomNum2) {
+      randomNum2 = Math.abs(rand.nextInt(entireSurferList.size()));
+    }
+    
+    while (randomNum == randomNum3 || randomNum2 == randomNum3) {
+      randomNum3 = Math.abs(rand.nextInt(entireSurferList.size()));
+    }
+    
+    surferList.add(entireSurferList.get(randomNum));
+    surferList.add(entireSurferList.get(randomNum2));
+    surferList.add(entireSurferList.get(randomNum3));
+    return surferList;
   }
 }

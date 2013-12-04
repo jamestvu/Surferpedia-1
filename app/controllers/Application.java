@@ -1,9 +1,11 @@
 package controllers;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -28,7 +30,6 @@ import views.formdata.FootstyleTypes;
  */
 public class Application extends Controller {
 
-  
   /**
    * Returns the index page with the carousel. 
    * @return The Surferpedia home page. 
@@ -193,5 +194,6 @@ public class Application extends Controller {
     session().clear();
     return redirect(routes.Application.index());
   }
+  
   
 }
