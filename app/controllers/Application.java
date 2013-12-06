@@ -196,10 +196,40 @@ public class Application extends Controller {
     return redirect(routes.Application.index());
   }
   
+  
   public static Result getSearchResults()  {
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
     return ok(SearchResults.render("Home", isLoggedIn, userInfo));
+  }
+  
+  /**
+   * Search for surfers based on user input.
+   * @return
+   */
+  public static Result search() {
+    
+    UserInfo userInfo = Secured.getUserInfo(ctx());
+    Boolean isLoggedIn = (userInfo != null);
+    
+    
+    Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
+    if (formData.hasErrors()) {
+      Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
+      List<String> footTypeList = FootstyleTypes.getFootTypes();      
+      
+      return badRequest(ManageSurfer.render(formData, surferTypeMap, footTypeList, false, "Post", isLoggedIn, userInfo));
+    }
+    else {
+      SurferFormData data = formData.get();
+      SurferDB.addSurfer(data);
+
+      Date curr = new Date();
+      String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
+      UpdateDB.addUpdate(date, data.name, "Create");
+      
+      return ok(ShowSurfer.render(formData, "Post", isLoggedIn, userInfo));  
+    }
   }
   
 }
