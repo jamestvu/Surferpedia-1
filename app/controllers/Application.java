@@ -212,7 +212,7 @@ public class Application extends Controller {
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
     
-    
+    /*
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
       Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
@@ -229,7 +229,8 @@ public class Application extends Controller {
       UpdateDB.addUpdate(date, data.name, "Create");
       
       return ok(ShowSurfer.render(formData, "Post", isLoggedIn, userInfo));  
-    }
+    }*/
+    return ok(SearchResults.render("Home", isLoggedIn, userInfo));
   }
   
 }
