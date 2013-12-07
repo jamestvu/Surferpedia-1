@@ -22,6 +22,7 @@ import models.UpdateDB;
 import models.UserInfo;
 import models.UserInfoDB;
 import views.formdata.LoginFormData;
+import views.formdata.SearchFormData;
 import views.formdata.SurferFormData;
 import views.formdata.SurferTypes;
 import views.formdata.FootstyleTypes;
@@ -200,7 +201,7 @@ public class Application extends Controller {
   public static Result getSearchResults()  {
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
-    return ok(SearchResults.render("Home", isLoggedIn, userInfo));
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, SurferDB.getSurfers()));
   }
   
   /**
@@ -211,7 +212,13 @@ public class Application extends Controller {
     
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
+    Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
+    List<Surfer> surferList = new ArrayList<Surfer>();
     
+    //TODO: get the surfer list based on the search query
+    surferList = SurferDB.getSurfers();
+    
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList));
     /*
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
@@ -230,7 +237,6 @@ public class Application extends Controller {
       
       return ok(ShowSurfer.render(formData, "Post", isLoggedIn, userInfo));  
     }*/
-    return ok(SearchResults.render("Home", isLoggedIn, userInfo));
   }
   
 }
