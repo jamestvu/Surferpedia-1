@@ -20,6 +20,54 @@ public class SearchFormData {
   /** Required for form instantiation. */
   public SearchFormData() {
   }
+  
+  public SearchFormData(String searchText, String genderType, String country) {
+    this.searchText = searchText;
+    this.genderType = genderType;
+    this.country = country;
+  }
+
+  /**
+   * @return the searchText
+   */
+  public String getSearchText() {
+    return searchText;
+  }
+
+  /**
+   * @param searchText the searchText to set
+   */
+  public void setSearchText(String searchText) {
+    this.searchText = searchText;
+  }
+
+  /**
+   * @return the genderType
+   */
+  public String getGenderType() {
+    return genderType;
+  }
+
+  /**
+   * @param genderType the genderType to set
+   */
+  public void setGenderType(String genderType) {
+    this.genderType = genderType;
+  }
+
+  /**
+   * @return the country
+   */
+  public String getCountry() {
+    return country;
+  }
+
+  /**
+   * @param country the country to set
+   */
+  public void setCountry(String country) {
+    this.country = country;
+  }
 
   /**
    * Validates Form<SearchFormData>.

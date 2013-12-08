@@ -1,5 +1,5 @@
-@(page: String, isLoggedIn: Boolean, userInfo: UserInfo) 
-@Main(page, isLoggedIn, userInfo) {
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, search: Form[views.formdata.SearchFormData], surferType: Map[String, Boolean]) 
+@Main(page, isLoggedIn, userInfo, search, surferType) {
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">

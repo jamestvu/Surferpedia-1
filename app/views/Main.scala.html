@@ -1,4 +1,4 @@
-@(page: String, isLoggedIn: Boolean, userInfo: UserInfo)(content: Html)
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, search: Form[views.formdata.SearchFormData], surferType: Map[String, Boolean])(content: Html)
 
 @import helper._
 
@@ -56,14 +56,36 @@
                   <li><a href="@routes.Application.logout()">Logout</a></li>
                 </ul>
                 }
-                @form(routes.Application.search(), 'class -> "navbar-form navbar-right") {
-                  <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
-                }
+                
+      <form class="navbar-form navbar-left" role="search" action="@routes.Application.getSearchResults()" method="post">
+      <div class="form-group pull-right">
+        <input type="text"
+               class="form-control"
+               id="@search("searchText").id"
+               value="@search("searchText").value"
+               name="@search("searchText").name"
+               placeholder="Search">
+      </div>
+      <div class="form-group">
+      <select
+        class="form-control"
+        id="@search("genderType").id"
+        name="@search("genderType").name">
+        <option class="blank" value="">All Types</option>
+        @for((optionName, isSelected) <- surferType) {
+          <option id="@optionName" value="@optionName" @if(isSelected) {selected}>@optionName</option>
+        }
+      <div class="text pull-right">
+      <input
+        class="form-control"
+        id="@search("country").id"
+        value="@search("country").value"
+        name="@search("country").name"
+        placeholder="Country eg: USA Japan Britain">
+      </input>
+      </div>
+      </form>
+               
             </div>
             
 
