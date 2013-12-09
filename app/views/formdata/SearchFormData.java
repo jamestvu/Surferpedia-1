@@ -16,6 +16,8 @@ public class SearchFormData {
   public String genderType = "";
   /** The country field. */
   public String country = "";
+  /** The slug field. */
+  public String slug = "";
 
   /** Required for form instantiation. */
   public SearchFormData() {

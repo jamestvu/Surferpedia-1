@@ -16,6 +16,8 @@ import views.html.ManageSurfer;
 import views.html.SearchResults;
 import views.html.ShowSurfer;
 import views.html.Updates;
+import models.SearchData;
+import models.SearchFormDB;
 import models.Surfer;
 import models.SurferDB;
 import models.UpdateDB;
@@ -38,18 +40,22 @@ public class Application extends Controller {
    */
   // @Security.Authenticated(Secured.class)  
   public static Result index() {
+    Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
+
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
     
-    return ok(Index.render("Home", isLoggedIn, userInfo));
+    return ok(Index.render("Home", isLoggedIn, userInfo, formData));
  
   }
   
   @Security.Authenticated(Secured.class)  
   public static Result updates() {
+    Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
+
     UserInfo userInfo = UserInfoDB.getUser(request().username());
     Boolean isLoggedIn = (userInfo != null);    
-    return ok(Updates.render("Updates", isLoggedIn, userInfo, UpdateDB.getUpdate()));
+    return ok(Updates.render("Updates", isLoggedIn, userInfo, UpdateDB.getUpdate(), formData));
   }
   
   /**
@@ -58,11 +64,13 @@ public class Application extends Controller {
    * @return The page of the surfer.
    */
   public static Result getSurfer(String slug) {
+    Form<SearchFormData> sformData = Form.form(SearchFormData.class).bindFromRequest();
+
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
     SurferFormData data = new SurferFormData(SurferDB.getSurfer(slug));
     Form<SurferFormData> formData = Form.form(SurferFormData.class).fill(data);
-    return ok(ShowSurfer.render(formData, "Surfer", isLoggedIn, userInfo));
+    return ok(ShowSurfer.render(formData, "Surfer", isLoggedIn, userInfo, sformData));
   }
   
   /**
@@ -72,6 +80,8 @@ public class Application extends Controller {
    */
   @Security.Authenticated(Secured.class)  
   public static Result deleteSurfer(String slug) {
+    Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
+
     Surfer surfer = SurferDB.getSurfer(slug);
     UserInfo userInfo = UserInfoDB.getUser(request().username());
     Boolean isLoggedIn = (userInfo != null);
@@ -81,7 +91,7 @@ public class Application extends Controller {
     UpdateDB.addUpdate(date, surfer.getName(), "Delete");
     
     SurferDB.deleteSurfer(slug);
-    return ok(Index.render("Home", isLoggedIn, userInfo));
+    return ok(Index.render("Home", isLoggedIn, userInfo, formData));
   }  
   
   /**
@@ -92,6 +102,8 @@ public class Application extends Controller {
    */
   @Security.Authenticated(Secured.class)  
   public static Result manageSurfer(String slug) {
+    Form<SearchFormData> sformData = Form.form(SearchFormData.class).bindFromRequest();
+
     slug = slug.trim();
     String surfType = SurferDB.getSurfer(slug).getSurferType();
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes(surfType);
@@ -106,7 +118,7 @@ public class Application extends Controller {
     UserInfo userInfo = UserInfoDB.getUser(request().username());
     Boolean isLoggedIn = (userInfo != null);
         
-    return ok(ManageSurfer.render(formData, surferTypeMap, footTypeList, true, "Edit", isLoggedIn, userInfo));
+    return ok(ManageSurfer.render(formData, surferTypeMap, footTypeList, true, "Edit", isLoggedIn, userInfo, sformData));
    }
   
   /**
@@ -116,6 +128,8 @@ public class Application extends Controller {
    */  
   @Security.Authenticated(Secured.class)
   public static Result newSurfer() {
+    Form<SearchFormData> sformData = Form.form(SearchFormData.class).bindFromRequest();
+
     Form<SurferFormData> formData = Form.form(SurferFormData.class);
     Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
     List<String> footTypeList = FootstyleTypes.getFootTypes();
@@ -123,7 +137,7 @@ public class Application extends Controller {
     UserInfo userInfo = UserInfoDB.getUser(request().username());
     Boolean isLoggedIn = (userInfo != null);
     
-    return ok(ManageSurfer.render(formData, surferTypeMap, footTypeList, false, "Create", isLoggedIn, userInfo));
+    return ok(ManageSurfer.render(formData, surferTypeMap, footTypeList, false, "Create", isLoggedIn, userInfo, sformData));
   }  
   
   /**
@@ -132,6 +146,8 @@ public class Application extends Controller {
    */
   @Security.Authenticated(Secured.class)  
   public static Result postSurfer() {
+    Form<SearchFormData> sformData = Form.form(SearchFormData.class).bindFromRequest();
+
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
       Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
@@ -140,7 +156,7 @@ public class Application extends Controller {
       UserInfo userInfo = UserInfoDB.getUser(request().username());
       Boolean isLoggedIn = (userInfo != null);
       
-      return badRequest(ManageSurfer.render(formData, surferTypeMap, footTypeList, false, "Post", isLoggedIn, userInfo));
+      return badRequest(ManageSurfer.render(formData, surferTypeMap, footTypeList, false, "Post", isLoggedIn, userInfo, sformData));
     }
     else {
       SurferFormData data = formData.get();
@@ -153,13 +169,15 @@ public class Application extends Controller {
       UserInfo userInfo = UserInfoDB.getUser(request().username());
       Boolean isLoggedIn = (userInfo != null);
       
-      return ok(ShowSurfer.render(formData, "Post", isLoggedIn, userInfo));  
+      return ok(ShowSurfer.render(formData, "Post", isLoggedIn, userInfo, sformData));  
     }
   }
 
   public static Result login() {
+    Form<SearchFormData> sformData = Form.form(SearchFormData.class).bindFromRequest();
+
     Form<LoginFormData> formData = Form.form(LoginFormData.class);
-    return ok(Login.render("Login", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData));
+    return ok(Login.render("Login", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData, sformData));
   }
 
   /**
@@ -171,13 +189,14 @@ public class Application extends Controller {
    * @return The index page with the results of validation. 
    */
   public static Result postLogin() {
+    Form<SearchFormData> sformData = Form.form(SearchFormData.class).bindFromRequest();
 
     // Get the submitted form data from the request object, and run validation.
     Form<LoginFormData> formData = Form.form(LoginFormData.class).bindFromRequest();
 
     if (formData.hasErrors()) {
       flash("error", "Login credentials not valid.");
-      return badRequest(Login.render("Login", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData));
+      return badRequest(Login.render("Login", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), formData, sformData));
     }
     else {
       // email/password OK, so now we set the session variable and only go to authenticated pages.
@@ -206,8 +225,11 @@ public class Application extends Controller {
     int listSize = surferList.size();
     
     Boolean isLoggedIn = (userInfo != null);
+    Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
     
-    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page));
+    List<SearchData> searchList = SearchFormDB.getSearch();
+    
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page, searchList, formData));
   }
   
   /**
@@ -219,15 +241,22 @@ public class Application extends Controller {
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
     Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
-    List<Surfer> surferList = new ArrayList<Surfer>();
+
+    List<SearchData> searchList = new ArrayList<SearchData>();
     
     //TODO: get the surfer list based on the search query
-    surferList = SurferDB.getSurfers();
+    searchList = SearchFormDB.addSearch(formData);
 
-    // size of list
-    int listSize = surferList.size();
+    System.out.println("app: " + formData.get().searchText);
     
-    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page));
+    // size of list
+    int listSize = searchList.size();
+    
+    List<Surfer> fullList = SurferDB.getSurfers();
+    
+    System.out.println(listSize);
+    
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, fullList, listSize, page, searchList, formData));
     /*
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     if (formData.hasErrors()) {

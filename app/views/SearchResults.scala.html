@@ -1,16 +1,23 @@
-@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer], listSize: Integer, pageNumber: Integer) 
-@Main(page, isLoggedIn, userInfo) {
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer], listSize: Integer, pageNumber: Integer,
+  search: List[SearchData], searchForm: Form[views.formdata.SearchFormData])
+  
+@import helper._
+@import bootstrap3._
+   
+@Main(page, isLoggedIn, userInfo, searchForm) {
   <div class="container" style="padding-top:10px">
     <table class="table table-striped table-bordered">
     <tr><th></th><th>Name</th></tr>
        
-    @for((surfer, index) <- surfers.zipWithIndex) { 
+    @for((surfer, index) <- search.zipWithIndex) { 
     <tr>
       @if(index < (pageNumber*15) && index >= ((pageNumber*15) - 15)) { 
       <td>@index</td>
-      <td><a href="@routes.Application.getSurfer(surfer.getSlug())" class="btn">@surfer.getName</a></td>
+      <td><a href="@routes.Application.getSurfer(surfer.getSlug())" class="btn">@surfer.getSearchText</a></td>
     </tr>}}
     </table>
+    
+    
         
     <!-- TODO: make pagination dynamic based on the surfer list size -->    
     <ul class="pagination">

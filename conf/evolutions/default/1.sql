@@ -3,6 +3,14 @@
 
 # --- !Ups
 
+create table search_data (
+  slug                      varchar(255) not null,
+  search_text               varchar(255),
+  gender_type               varchar(255),
+  country                   varchar(255),
+  constraint pk_search_data primary key (slug))
+;
+
 create table surfer (
   slug                      varchar(255) not null,
   name                      varchar(255),
@@ -35,6 +43,8 @@ create index ix_surfer_userInfo_1 on surfer (user_info_id);
 # --- !Downs
 
 SET FOREIGN_KEY_CHECKS=0;
+
+drop table search_data;
 
 drop table surfer;
 
