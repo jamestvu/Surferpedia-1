@@ -34,17 +34,13 @@ public class SearchFormDB {
     // List<SearchData> searchList = new ArrayList<>();
     
     // clear previous data
-    System.out.println("before: " + SearchData.find().all().size());
-
     while (SearchData.find().all().size() != 0) {
-    for (int i = 0; i < SearchData.find().all().size(); i++) {    
-      //if (SearchData.find().all().size() != 0) {
-        System.out.println(i + ". " + SearchData.find().all().get(i).getSearchText());
+      for (int i = 0; i < SearchData.find().all().size(); i++) {    
         SearchData.find().all().get(i).delete();
-      //}
-    }
+      }
     }
     
+    // create search list
     for (int i = 0; i < surfers.size(); i++) {
       if (surfers.get(i).getName().toLowerCase().contains(name)) {
         searchData = new SearchData(surfers.get(i).getName(), surfers.get(i).getSurferType(), 
@@ -54,26 +50,6 @@ public class SearchFormDB {
     }
         
     return SearchData.find().all();         
-  }
-    /**
-    else {
-      for (int i = 0; i < surfers.size(); i++) {
-        searchData = new SearchData(surfers.get(i).getName(), surfers.get(i).getSurferType(), 
-            surfers.get(i).getCountry(), surfers.get(i).getSlug());        
-        searchData.save();
-      }
-    }
-    return SearchData.find().all();
-  }
-  **/
-  
-  public static void delSearch() {
-    if (SearchData.find().all().size() != 0) {
-      for (int i = 0; i < SearchData.find().all().size(); i++) {
-        SearchData.find().all().clear();
-        System.out.println("baleeted");
-      }
-    }
   }
   
   public static List<SearchData> getSearch() {

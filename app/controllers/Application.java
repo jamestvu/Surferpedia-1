@@ -246,35 +246,13 @@ public class Application extends Controller {
     
     //TODO: get the surfer list based on the search query
     searchList = SearchFormDB.addSearch(formData);
-
-    System.out.println("app: " + formData.get().searchText);
     
     // size of list
     int listSize = searchList.size();
     
     List<Surfer> fullList = SurferDB.getSurfers();
     
-    System.out.println(listSize);
-    
     return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, fullList, listSize, page, searchList, formData));
-    /*
-    Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
-    if (formData.hasErrors()) {
-      Map<String, Boolean> surferTypeMap = SurferTypes.getTypes();
-      List<String> footTypeList = FootstyleTypes.getFootTypes();      
-      
-      return badRequest(ManageSurfer.render(formData, surferTypeMap, footTypeList, false, "Post", isLoggedIn, userInfo));
-    }
-    else {
-      SurferFormData data = formData.get();
-      SurferDB.addSurfer(data);
-
-      Date curr = new Date();
-      String date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(curr);
-      UpdateDB.addUpdate(date, data.name, "Create");
-      
-      return ok(ShowSurfer.render(formData, "Post", isLoggedIn, userInfo));  
-    }*/
   }
   
 }
