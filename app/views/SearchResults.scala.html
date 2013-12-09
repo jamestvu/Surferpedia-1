@@ -23,11 +23,8 @@
     <ul class="pagination">
       <li class="disabled"><a href="#">&laquo;</a></li>
       <!-- Divide list size by 15 to get the number of pages -->
-      @for(pagenum <- 1 to (listSize / 15)) {           
-      <li><a href="@routes.Application.getSearchResults(pagenum)">@pagenum</a></li>}
-      <!-- If the remainder is not 0, make 1 additional page -->
-      @if((listSize % 15) != 0) { 
-        <li><a href="@routes.Application.getSearchResults((listSize / 15) + 1)">@((listSize / 15) + 1)</a></li> } 
+      @for(pagenum <- 1 to listSize) {           
+      <li><a href="@routes.Application.getSearchResults(pagenum)">@pagenum</a></li>}               
       <li><a href="#">&raquo;</a></li>
     </ul>  
     

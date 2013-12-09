@@ -222,13 +222,14 @@ public class Application extends Controller {
     UserInfo userInfo = Secured.getUserInfo(ctx());
     List<Surfer> surferList = new ArrayList<Surfer>();
     surferList = SurferDB.getSurfers();
-    int listSize = surferList.size();
+
+    List<SearchData> searchList = SearchFormDB.getSearch();    
+    
+    int listSize = (searchList.size() % 15 == 0) ? (searchList.size() / 15) : (searchList.size() / 15) + 1;
     
     Boolean isLoggedIn = (userInfo != null);
     Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
-    
-    List<SearchData> searchList = SearchFormDB.getSearch();
-    
+        
     return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page, searchList, formData));
   }
   
@@ -248,7 +249,7 @@ public class Application extends Controller {
     searchList = SearchFormDB.addSearch(formData);
     
     // size of list
-    int listSize = searchList.size();
+    int listSize = (searchList.size() % 15 == 0) ? (searchList.size() / 15) : (searchList.size() / 15) + 1;
     
     List<Surfer> fullList = SurferDB.getSurfers();
     

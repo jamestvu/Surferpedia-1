@@ -64,7 +64,12 @@
                     placeholder = "Search",
                     help = "")
                   
-
+                  @bootstrap3.select(searchForm("genderType"),
+                    label = "",
+                    optionMap = views.formdata.SurferTypes.getTypes(),
+                    isMultiple = false,
+                    help = "")
+                    
                     <button type="submit" class="btn btn-primary">Submit</button>
                 }
             </div>

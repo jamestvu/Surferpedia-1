@@ -39,16 +39,45 @@ public class SearchFormDB {
         SearchData.find().all().get(i).delete();
       }
     }
-    
+
+    // if everything is null, return full list
+    if (name.isEmpty() && surferType.isEmpty()) {
+      for (int i = 0; i < surfers.size(); i++) {
+        searchData = new SearchData(surfers.get(i).getName(), surfers.get(i).getSurferType(), 
+            surfers.get(i).getCountry(), surfers.get(i).getSlug());
+            searchData.save();
+      }      
+    }
+       
+    else if (!name.isEmpty() && surferType.isEmpty()) {
+      for (int i = 0; i < surfers.size(); i++) {
+        if (surfers.get(i).getName().toLowerCase().contains(name)) {        
+        searchData = new SearchData(surfers.get(i).getName(), surfers.get(i).getSurferType(), 
+            surfers.get(i).getCountry(), surfers.get(i).getSlug());
+        searchData.save();
+      }      
+      }
+    }
+    else {
     // create search list
     for (int i = 0; i < surfers.size(); i++) {
-      if (surfers.get(i).getName().toLowerCase().contains(name)) {
+      /**
+      if (surfers.get(i).getName() == null && surfers.get(i).getSurferType() == null) {
+        searchData = new SearchData(surfers.get(i).getName(), surfers.get(i).getSurferType(), 
+            surfers.get(i).getCountry(), surfers.get(i).getSlug());
+        searchData.save();
+        break;
+      }
+      */
+      // if search not null and type not null
+      if (surfers.get(i).getName().toLowerCase().contains(name) && surfers.get(i).getSurferType().equals(surferType)) {
         searchData = new SearchData(surfers.get(i).getName(), surfers.get(i).getSurferType(), 
                                     surfers.get(i).getCountry(), surfers.get(i).getSlug());
         searchData.save();
+        }
       }
     }
-        
+    
     return SearchData.find().all();         
   }
   
