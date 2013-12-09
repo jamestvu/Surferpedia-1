@@ -1,27 +1,26 @@
-@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer]) 
+@(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer], listSize: Integer, pageNumber: Integer) 
 @Main(page, isLoggedIn, userInfo) {
   <div class="container" style="padding-top:10px">
     <table class="table table-striped table-bordered">
     <tr><th></th><th>Name</th></tr>
+       
     @for((surfer, index) <- surfers.zipWithIndex) { 
     <tr>
+      @if(index < (pageNumber*15) && index >= ((pageNumber*15) - 15)) { 
       <td>@index</td>
       <td><a href="@routes.Application.getSurfer(surfer.getSlug())" class="btn">@surfer.getName</a></td>
-    </tr>
-    }
+    </tr>}}
     </table>
-    
-    
-    <!-- TODO: make pagination dynamic based on the surfer list size -->
-    
-    
+        
+    <!-- TODO: make pagination dynamic based on the surfer list size -->    
     <ul class="pagination">
       <li class="disabled"><a href="#">&laquo;</a></li>
-      <li class="active"><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
+      <!-- Divide list size by 15 to get the number of pages -->
+      @for(pagenum <- 1 to (listSize / 15)) {           
+      <li><a href="@routes.Application.getSearchResults(pagenum)">@pagenum</a></li>}
+      <!-- If the remainder is not 0, make 1 additional page -->
+      @if((listSize % 15) != 0) { 
+        <li><a href="@routes.Application.getSearchResults((listSize / 15) + 1)">@((listSize / 15) + 1)</a></li> } 
       <li><a href="#">&raquo;</a></li>
     </ul>  
     

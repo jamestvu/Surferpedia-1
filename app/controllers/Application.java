@@ -198,17 +198,23 @@ public class Application extends Controller {
   }
   
   
-  public static Result getSearchResults()  {
+  public static Result getSearchResults(int page)  {
+    
     UserInfo userInfo = Secured.getUserInfo(ctx());
+    List<Surfer> surferList = new ArrayList<Surfer>();
+    surferList = SurferDB.getSurfers();
+    int listSize = surferList.size();
+    
     Boolean isLoggedIn = (userInfo != null);
-    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, SurferDB.getSurfers()));
+    
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page));
   }
   
   /**
    * Search for surfers based on user input.
    * @return
    */
-  public static Result search() {
+  public static Result search(int page) {
     
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
@@ -217,8 +223,11 @@ public class Application extends Controller {
     
     //TODO: get the surfer list based on the search query
     surferList = SurferDB.getSurfers();
+
+    // size of list
+    int listSize = surferList.size();
     
-    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList));
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page));
     /*
     Form<SurferFormData> formData = Form.form(SurferFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
