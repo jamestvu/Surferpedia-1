@@ -1,0 +1,34 @@
+@(searchText: Field, genderType: Field, country: Field, typeMap: Map[String, Boolean])
+
+
+          <form class="navbar-form navbar-right" role="search" action="@routes.Application.search()" method="post">
+      <div class="form-group">
+        <input type="text"
+               class="form-control"
+               id="@searchText.id"
+               value="@searchText.value"
+               name="@searchText.name"
+               placeholder="Search">
+      </div>
+      <div class="form-group">
+      <select
+        class="form-control"
+        id="@genderType.id"
+        name="@genderType.name">
+        <option class="blank" value="">All Types</option>
+        @for((optionName, isSelected) <- typeMap) {
+          <option id="@optionName" value="@optionName" @if(isSelected) {selected}>@optionName</option>
+        }
+      </select>
+      </div>
+      <div class="form-group">
+      <input type = "text"
+        class="form-control"
+        id="@country.id"
+        value="@country.value"
+        name="@country.name"
+        placeholder="country">
+        
+      </div>
+       <button type="submit" class="btn btn-default">Submit</button>
+    </form>

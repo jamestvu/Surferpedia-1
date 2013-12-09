@@ -1,0 +1,4 @@
+/**
+ * Pages.
+ */
+package tests.pages;

@@ -25,7 +25,7 @@ public class SearchFormDB {
     List<Surfer> surfers = SurferDB.getSurfers();
         
     String name = formData.get().searchText;
-    String surferType = "";
+    String surferType = formData.get().genderType;
     String country = "";
     String slug = formData.get().slug;
 
