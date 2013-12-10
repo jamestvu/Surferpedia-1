@@ -111,7 +111,7 @@ public class SurferDB {
    * @return
    */
   public static List<Surfer> getSearchQuery(String text, String type, String country) {
-    List<Surfer> surferList = Surfer.find().filter().icontains("name", text).icontains("surferType", type).icontains("country", 
+    List<Surfer> surferList = Surfer.find().filter().icontains("name", text).ieq("surferType", type).icontains("country", 
         country).filter(SurferDB.getSurfers());
     return surferList;
   }
