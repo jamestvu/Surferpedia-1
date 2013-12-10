@@ -223,8 +223,8 @@ public class Application extends Controller {
     List<Surfer> surferList = new ArrayList<Surfer>();
     surferList = SurferDB.getSurfers();
 
-    List<SearchData> searchList = SearchFormDB.getSearch();    
-    
+    //List<Surfer> searchList = SearchFormDB.getSearch();    
+    List<Surfer> searchList = SurferDB.getSurfers();
     int listSize = (searchList.size() % 15 == 0) ? (searchList.size() / 15) : (searchList.size() / 15) + 1;
     
     Boolean isLoggedIn = (userInfo != null);
@@ -243,11 +243,11 @@ public class Application extends Controller {
     Boolean isLoggedIn = (userInfo != null);
     Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
 
-    List<SearchData> searchList = new ArrayList<SearchData>();
+    List<Surfer> searchList = new ArrayList<Surfer>();
     
     //TODO: get the surfer list based on the search query
-    searchList = SearchFormDB.addSearch(formData);
-    
+    //searchList = SearchFormDB.addSearch(formData);
+    searchList = SurferDB.getSearchQuery(formData.get().searchText, formData.get().genderType, formData.get().country);
     // size of list
     int listSize = (searchList.size() % 15 == 0) ? (searchList.size() / 15) : (searchList.size() / 15) + 1;
     

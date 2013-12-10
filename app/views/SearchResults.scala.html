@@ -1,5 +1,5 @@
 @(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer], listSize: Integer, pageNumber: Integer,
-  search: List[SearchData], searchForm: Form[views.formdata.SearchFormData])
+  search: List[Surfer], searchForm: Form[views.formdata.SearchFormData])
   
 @import helper._
 @import bootstrap3._
@@ -13,7 +13,7 @@
     <tr>
       @if(index < (pageNumber*15) && index >= ((pageNumber*15) - 15)) { 
       <td>@index</td>
-      <td><a href="@routes.Application.getSurfer(surfer.getSlug())" class="btn">@surfer.getSearchText</a></td>
+      <td><a href="@routes.Application.getSurfer(surfer.getSlug())" class="btn">@surfer.getName()</a></td>
     </tr>}}
     </table>
     

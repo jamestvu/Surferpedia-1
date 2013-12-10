@@ -102,4 +102,17 @@ public class SurferDB {
     surferList.add(entireSurferList.get(randomNum3));
     return surferList;
   }
+  
+  /**
+   * Returns the list of surfers based on the search query.
+   * @param text the name to search.
+   * @param type
+   * @param country
+   * @return
+   */
+  public static List<Surfer> getSearchQuery(String text, String type, String country) {
+    List<Surfer> surferList = Surfer.find().filter().icontains("name", text).icontains("surferType", type).icontains("country", 
+        country).filter(SurferDB.getSurfers());
+    return surferList;
+  }
 }
