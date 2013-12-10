@@ -305,7 +305,7 @@ public class Global extends GlobalSettings {
           "http://stwww.surfingmagazine.com/wp-content/blogs.dir/1/files/2011/02/JakeMarshall01-677x442.jpg",
           biotext,
           "jakemarshall",
-          "Male",
+          "Grom",
           "Regular",
           "USA"));
       //3
@@ -317,7 +317,7 @@ public class Global extends GlobalSettings {
           "http://stwww.surfingmagazine.com/wp-content/blogs.dir/1/files/2012/11/tyler-gunter.jpg",
           biotext,
           "tylergunter",
-          "Male",
+          "Grom",
           "Regular",
           "USA"));
       //4
@@ -329,7 +329,7 @@ public class Global extends GlobalSettings {
           "http://www.surfline.com/surfnews/images/2012/05_may/SAPrime_Nags/full/LukeGordon_IMG_2533.jpg",
           biotext,
           "lukegordon",
-          "Male",
+          "Grom",
           "Regular",
           "USA"));
       //5
@@ -341,7 +341,7 @@ public class Global extends GlobalSettings {
           "http://www.sexwax.com/riders/mahina_maeda_sw_web_2%281%29.jpeg",
           biotext,
           "mahinamaeda",
-          "Female",
+          "Grom",
           "Regular",
           "USA"));
       //6
@@ -353,7 +353,7 @@ public class Global extends GlobalSettings {
           "http://www.surfsss.org/wp-content/uploads/2012/05/malia_osterkamp.jpg",
           biotext,
           "maliaosterkamp",
-          "Female",
+          "Grom",
           "Regular",
           "USA"));
       //7
@@ -365,7 +365,7 @@ public class Global extends GlobalSettings {
           "http://www.novusswell.com/wp-content/uploads/2012/05/Screen-shot-2012-05-06-at-11.25.10-AM.png",
           biotext,
           "sethmoniz",
-          "Male",
+          "Grom",
           "Regular",
           "USA"));
       //8
@@ -377,7 +377,7 @@ public class Global extends GlobalSettings {
           "http://www.nssa.org/upload/thumb_200x150_photo%288%29.jpg",
           biotext,
           "tommymckeown",
-          "Male",
+          "Grom",
           "Regular",
           "USA"));
       //9
@@ -389,7 +389,7 @@ public class Global extends GlobalSettings {
           "http://www.oneillclothing.com/blog/wp-content/uploads/2013/07/noah_5.jpg",
           biotext,
           "noahhill",
-          "Male",
+          "Grom",
           "Regular",
           "USA"));
       //10
@@ -401,7 +401,7 @@ public class Global extends GlobalSettings {
           "http://www.santacruzwaves.com/wordpress/wp-content/uploads/428b3a623c406a01f2a4360fbbcceb96.jpg",
           biotext,
           "samcoffey",
-          "Male",
+          "Grom",
           "Regular",
           "USA"));
       
