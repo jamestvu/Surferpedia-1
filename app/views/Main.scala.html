@@ -58,12 +58,7 @@
                 </ul>
                 }
                 @form(routes.Application.search(1), 'class -> "navbar-form navbar-right", 'style -> "margin: 0px") {
-
-                  @text(searchForm("searchText"),
-                    label = "",
-                    placeholder = "Search",
-                    help = "")
-                  
+                
                   @bootstrap3.select(searchForm("genderType"),
                     label = "",
                     optionMap = views.formdata.SurferTypes.getTypes(),
@@ -72,11 +67,16 @@
 
                   @bootstrap3.select(searchForm("country"),
                     label = "",
-                    optionMap = views.formdata.SurferTypes.getTypes(),
+                    optionMap = views.formdata.Countries.getTypes(),
                     isMultiple = false,
                     help = "")
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                  @text(searchForm("searchText"),
+                    label = "",
+                    placeholder = "Search",
+                    help = "")
+           
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                 }
             </div>
     
