@@ -1,5 +1,5 @@
 @(page: String, isLoggedIn: Boolean, userInfo: UserInfo, surfers: List[Surfer], listSize: Integer, pageNumber: Integer,
-  search: List[Surfer], searchForm: Form[views.formdata.SearchFormData])
+  search: List[Surfer], searchForm: Form[views.formdata.SearchFormData], name: String, gender: String, country: String, currentPage: com.avaje.ebean.Page[Surfer])
   
 @import helper._
 @import bootstrap3._
@@ -19,30 +19,19 @@
     }
     </table>
        
-    <ul class="pagination">
-      @if(pageNumber == 1) {
-        <li class="disabled"><a href="#">&laquo;</a></li>
-      } else {
-        <li><a href="@routes.Application.getSearchResults(pageNumber - 1)">&laquo;</a></li>
-      }
-      
-      <!-- Divide list size by 15 to get the number of pages -->
-      @for(pagenum <- 1 to listSize) {
-        @if(pagenum == pageNumber) {
-          <li class="active">
-        } else {
-          <li>
-        }
-        <a href="@routes.Application.getSearchResults(pagenum)">@pagenum</a></li>
-      }
-      @if(pageNumber == listSize) {
-        <li class="disabled"><a href="#">&raquo;</a></li>
-      } else {
-        <li><a href="@routes.Application.getSearchResults(pageNumber + 1)">&raquo;</a></li>
-      }
-                    
-    </ul>  
-    
+ @if(currentPage.getTotalPageCount > 1) {
+<ul class="pagination">
+  @if(currentPage.hasPrev) {
+  <li><a href="@routes.Application.pageSearch(currentPage.prev.getPageIndex + 1,name, gender, country) ">&laquo;</a></li>
+  }
+  @for(index <- 1 to currentPage.getTotalPageCount) {
+  <li><a href="@routes.Application.pageSearch(index,name, gender, country)">@index</a></li>
+  }
+  @if(currentPage.hasNext) {
+  <li><a href="@routes.Application.pageSearch(currentPage.next.getPageIndex + 1,name, gender, country)">&raquo;</a></li>
+  }
+</ul>
+}
     
   </div>
 }

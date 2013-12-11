@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import com.avaje.ebean.Page;
 import models.Surfer;
 import models.SurferDB;
 import models.UpdateDB;
@@ -214,7 +215,7 @@ public class Application extends Controller {
   }
   
   
-  public static Result getSearchResults(int page)  {
+ /* public static Result getSearchResults(int page)  {
     
     UserInfo userInfo = Secured.getUserInfo(ctx());
     List<Surfer> surferList = new ArrayList<Surfer>();
@@ -228,18 +229,35 @@ public class Application extends Controller {
     Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
         
     return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page, searchList, formData));
-  }
+  }*/
+  
+/*public static Result getSearchResults(int page, String name, String genderType, String country )  {
+  List<Surfer> test = SurferDB.getSearchQuery(name,genderType,country);
+    UserInfo userInfo = Secured.getUserInfo(ctx());
+    List<Surfer> surferList = new ArrayList<Surfer>();
+    surferList = SurferDB.getSurfers();
+
+    //List<Surfer> searchList = SearchFormDB.getSearch();    
+    List<Surfer> searchList = SurferDB.getSurfers();
+    int listSize = (searchList.size() % 15 == 0) ? (searchList.size() / 15) : (searchList.size() / 15) + 1;
+    searchList = SurferDB.getSearchQuery(name,genderType, country);
+    Boolean isLoggedIn = (userInfo != null);
+    Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
+    
+        
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page, searchList, formData,name,genderType,country));
+  }*/
   
   /**
    * Search for surfers based on user input.
    * @return
    */
   public static Result search(int page) {
-    
     UserInfo userInfo = Secured.getUserInfo(ctx());
     Boolean isLoggedIn = (userInfo != null);
     Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
-
+    SearchFormData data = formData.get(); 
+    Page<Surfer> results = SurferDB.search(data.searchText, data.genderType, data.country, page);
     List<Surfer> searchList = new ArrayList<Surfer>();
     
     //TODO: get the surfer list based on the search query
@@ -250,7 +268,19 @@ public class Application extends Controller {
     
     List<Surfer> fullList = SurferDB.getSurfers();
     
-    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, fullList, listSize, page, searchList, formData));
+    return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, fullList, listSize, page, searchList, formData,formData.get().searchText,formData.get().genderType,formData.get().country,results));
+  }
+  
+  public static Result pageSearch(int page,String searchTerm, String type, String country) {
+    Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
+    Page<Surfer> results = SurferDB.search(searchTerm, type, country, page - 1);
+    List<Surfer> fullList = SurferDB.getSurfers();
+    List<Surfer> searchList = SurferDB.getSurfers();
+    searchList = SurferDB.getSearchQuery(formData.get().searchText, formData.get().genderType, formData.get().country);
+    int listSize = (searchList.size() % 15 == 0) ? (searchList.size() / 15) : (searchList.size() / 15) + 1;
+    return ok(SearchResults.render("Search", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()),
+        fullList,listSize,page,searchList, formData, searchTerm, type, country,
+        results));
   }
   
 }

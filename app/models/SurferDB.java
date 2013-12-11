@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import com.avaje.ebean.Page;
 import views.formdata.SurferFormData;
 
 /**
@@ -121,5 +122,24 @@ public class SurferDB {
           country).filter(SurferDB.getSurfers());
     }
     return surferList;
+  }
+  
+  public static Page<Surfer> search(String term, String type, String country, int page) {
+    if (type.equals("") && country.equals("")) {
+      return Surfer.find().where().icontains("name", term).order("name")
+          .findPagingList(15).setFetchAhead(false).getPage(page);
+    }
+    else if (type.equals("")) {
+      return Surfer.find().where().icontains("name", term).ieq("country", country)
+          .order("name").findPagingList(15).setFetchAhead(false).getPage(page);
+    }
+    else if (country.equals("")) {
+      return Surfer.find().where().icontains("name", term).ieq("type", type)
+          .order("name").findPagingList(15).setFetchAhead(false).getPage(page);
+    }
+    else {
+      return Surfer.find().where().icontains("name", term).ieq("type", type)
+          .ieq("country", country).order("name").findPagingList(15).setFetchAhead(false).getPage(page);
+    }
   }
 }
