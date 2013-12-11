@@ -23,7 +23,7 @@
       @if(pageNumber == 1) {
         <li class="disabled"><a href="#">&laquo;</a></li>
       } else {
-        <li><a href="@routes.Application.getSearchResults(pageNumber - 1)">&laquo;</a></li>
+        <li><a href="@routes.Application.getSearchResults(pageNumber - 1, searchForm.get().searchText, searchForm.get().genderType, searchForm.get().country)">&laquo;</a></li>
       }
       
       <!-- Divide list size by 15 to get the number of pages -->
@@ -33,12 +33,12 @@
         } else {
           <li>
         }
-        <a href="@routes.Application.getSearchResults(pagenum)">@pagenum</a></li>
+        <a href="@routes.Application.getSearchResults(pagenum, searchForm.get().searchText, searchForm.get().genderType, searchForm.get().country)">@pagenum</a></li>
       }
       @if(pageNumber == listSize) {
         <li class="disabled"><a href="#">&raquo;</a></li>
       } else {
-        <li><a href="@routes.Application.getSearchResults(pageNumber + 1)">&raquo;</a></li>
+        <li><a href="@routes.Application.getSearchResults(pageNumber + 1, searchForm.get().searchText, searchForm.get().genderType, searchForm.get().country)">&raquo;</a></li>
       }
                     
     </ul>  

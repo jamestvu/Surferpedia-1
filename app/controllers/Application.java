@@ -214,19 +214,19 @@ public class Application extends Controller {
   }
   
   
-  public static Result getSearchResults(int page)  {
+  public static Result getSearchResults(int page, String searchText, String type, String country)  {
     
     UserInfo userInfo = Secured.getUserInfo(ctx());
     List<Surfer> surferList = new ArrayList<Surfer>();
     surferList = SurferDB.getSurfers();
-
+    
     //List<Surfer> searchList = SearchFormDB.getSearch();    
-    List<Surfer> searchList = SurferDB.getSurfers();
+    List<Surfer> searchList = SurferDB.getSearchQuery(searchText, type, country);
     int listSize = (searchList.size() % 15 == 0) ? (searchList.size() / 15) : (searchList.size() / 15) + 1;
     
     Boolean isLoggedIn = (userInfo != null);
     Form<SearchFormData> formData = Form.form(SearchFormData.class).bindFromRequest();
-        
+    
     return ok(SearchResults.render("Search Results", isLoggedIn, userInfo, surferList, listSize, page, searchList, formData));
   }
   
