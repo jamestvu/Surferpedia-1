@@ -134,11 +134,11 @@ public class SurferDB {
           .order("name").findPagingList(15).setFetchAhead(false).getPage(page);
     }
     else if (country.equals("")) {
-      return Surfer.find().where().icontains("name", term).ieq("type", type)
+      return Surfer.find().where().icontains("name", term).ieq("surferType", type)
           .order("name").findPagingList(15).setFetchAhead(false).getPage(page);
     }
     else {
-      return Surfer.find().where().icontains("name", term).ieq("type", type)
+      return Surfer.find().where().icontains("name", term).ieq("surferType", type)
           .ieq("country", country).order("name").findPagingList(15).setFetchAhead(false).getPage(page);
     }
   }
