@@ -12,7 +12,7 @@
              name="@field.name" 
              value="@field.value.getOrElse("")"
              placeholder="@placeholder" />
-      <span class="help-block">@help</span>
+      <span id="slugHelpBlock" class="help-block">@help</span>
       @for(slug <- SurferDB.getSurfers()) {@if((field.value.toString().equals("Some("+slug.getSlug()+")")) 
            && !placeholder.equals("exists")) {<span class="help-block">
       Slug exists, try another.</span>}}

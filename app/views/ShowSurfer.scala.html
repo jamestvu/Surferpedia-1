@@ -16,16 +16,16 @@
         </div>
         <div class="col-md-8">
             <div class="well">
-              <h1>@surferForm("name").value</h1>
-              <p><strong>Home Town</strong>: @surferForm("home").value</p>
-              <p><strong>Awards</strong>: @surferForm("awards").value</p>
-              <p><strong>Foot style</strong>: @surferForm("foot").value</p>
-              <p><strong>Country</strong>: @surferForm("country").value</p>
-              <p><strong>Biography</strong>: @surferForm("bio").value</p>
+              <h1 id="surferName">@surferForm("name").value</h1>
+              <p id="surferHome"><strong>Home Town</strong>: @surferForm("home").value</p>
+              <p id="surferAwards"><strong>Awards</strong>: @surferForm("awards").value</p>
+              <p id="surferFoot"><strong>Foot style</strong>: @surferForm("foot").value</p>
+              <p id="surferCountry"><strong>Country</strong>: @surferForm("country").value</p>
+              <p id="surferBio"><strong>Biography</strong>: @surferForm("bio").value</p>
               
               @if(isLoggedIn) {       
-              <a href="@routes.Application.manageSurfer(surferForm("slug").value)" class="pull-left">Edit</a> 
-              <a data-toggle="modal" href="#delModal" class="pull-right">Delete</a>}
+              <a id="edit" href="@routes.Application.manageSurfer(surferForm("slug").value)" class="pull-left">Edit</a> 
+              <a id="delete" data-toggle="modal" href="#delModal" class="pull-right">Delete</a>}
               <br>               
             </div>
         </div>
@@ -43,9 +43,9 @@
                     <p>This cannot be undone.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
+                    <button id="modalCancel" type="button" class="btn btn-default"
                         data-dismiss="modal">Cancel</button>
-                    <a href="@routes.Application.deleteSurfer(surferForm("slug").value)" class="btn btn-primary">Delete</a>
+                    <a id="modalDelete" href="@routes.Application.deleteSurfer(surferForm("slug").value)" class="btn btn-primary">Delete</a>
                 </div>
             </div>
             <!-- /.modal-content -->

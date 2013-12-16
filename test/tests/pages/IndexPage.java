@@ -13,7 +13,7 @@ import static org.fest.assertions.Assertions.assertThat;
  * Implements index page behavior.  
  * @author Philip Johnson
  */
-public class LoginPage extends FluentPage {
+public class IndexPage extends FluentPage {
   private String url;
   
   /**
@@ -21,9 +21,9 @@ public class LoginPage extends FluentPage {
    * @param webDriver The driver.
    * @param port The port.
    */
-  public LoginPage(WebDriver webDriver, int port) {
+  public IndexPage(WebDriver webDriver, int port) {
     super(webDriver);
-    this.url = "http://localhost:" + port + "/login";
+    this.url = "http://localhost:" + port;
   }
   
   @Override
@@ -31,18 +31,10 @@ public class LoginPage extends FluentPage {
     return this.url;
   }
   
+  // Tests to see if on the index page by finding the carousel.
   @Override
   public void isAt() {
-    assertThat(title()).isEqualTo("surferpedia");
-  }
-  
-  // Login with admin credentials.
-  public void login() {
-    String adminEmail = Play.application().configuration().getString("digits.admin.email");
-    String adminPassword = Play.application().configuration().getString("digits.admin.password");
-    fill("#email").with(adminEmail);
-    fill("#password").with(adminPassword);
-    submit("#submit");
+    assertThat(!find("#carousel").isEmpty());
   }
   
   // Logout method.
