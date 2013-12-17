@@ -6,6 +6,7 @@ import play.libs.F.Callback;
 import tests.pages.IndexPage;
 import tests.pages.LoginPage;
 import tests.pages.NewSurferPage;
+import tests.pages.SearchResultsPage;
 import static play.test.Helpers.HTMLUNIT;
 import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.fakeApplication;
@@ -89,6 +90,23 @@ public class IntegrationTest {
         browser.goTo("http://localhost:3333/surfer/testslug/");
         assertThat(browser.pageSource()).contains("Action not found");
 
+      }
+    });
+  }
+  
+  // Test login/logout functions.
+  @Test
+  public void testSearchWidget() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        IndexPage indexPage = new IndexPage(browser.getDriver(), PORT);
+        browser.goTo(indexPage);
+        indexPage.isAt();
+        SearchResultsPage searchPage = new SearchResultsPage(browser.getDriver(), PORT);
+        searchPage.searchAll();
+        searchPage.isAt();
+        //Search all should contain Joyce Hoffman
+        assertThat(browser.pageSource()).contains("Joyce Hoffman");
       }
     });
   }

@@ -13,7 +13,7 @@ import static org.fest.assertions.Assertions.assertThat;
  * Implements index page behavior.  
  * @author Philip Johnson
  */
-public class IndexPage extends FluentPage {
+public class SearchResultsPage extends FluentPage {
   private String url;
   
   /**
@@ -21,9 +21,9 @@ public class IndexPage extends FluentPage {
    * @param webDriver The driver.
    * @param port The port.
    */
-  public IndexPage(WebDriver webDriver, int port) {
+  public SearchResultsPage(WebDriver webDriver, int port) {
     super(webDriver);
-    this.url = "http://localhost:" + port;
+    this.url = "http://localhost:" + port + "/search";
   }
   
   @Override
@@ -34,23 +34,15 @@ public class IndexPage extends FluentPage {
   // Tests to see if on the index page by finding the carousel.
   @Override
   public void isAt() {
-    assertThat(!find("#carousel").isEmpty());
+    assertThat(title()).isEqualTo("Surferpedia: Search Results");
   }
   
   // Search method
   public void searchAll() {
+    find("#navButton").click();
     find("#searchSubmit").click();
   }
   
-  // Logout method.
-  public void logout() {
-    find("#navButton").click();
-    find("#logout").click();        
-  }
-  
-  // Confirm logged out.
-  public boolean isLoggedOut() {
-    return find("#logout").isEmpty();
-  }
+
 
 }
