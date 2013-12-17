@@ -37,6 +37,13 @@ public class SearchResultsPage extends FluentPage {
     assertThat(title()).isEqualTo("Surferpedia: Search Results");
   }
   
+  public void nextPage() {
+    find("#page3").click();
+  }
+  
+  public void previousPage() {
+    find("#page1").click();
+  }
   // Search method
   public void searchAll() {
     find("#navButton").click();

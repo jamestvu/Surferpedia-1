@@ -94,7 +94,7 @@ public class IntegrationTest {
     });
   }
   
-  // Test login/logout functions.
+  // Test search widget
   @Test
   public void testSearchWidget() {
     running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
@@ -111,4 +111,29 @@ public class IntegrationTest {
     });
   }
 
+  // Test login/logout functions.
+  @Test
+  public void testPagination() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        IndexPage indexPage = new IndexPage(browser.getDriver(), PORT);
+        browser.goTo(indexPage);
+        indexPage.isAt();
+        SearchResultsPage searchPage = new SearchResultsPage(browser.getDriver(), PORT);
+        searchPage.searchAll();
+        searchPage.isAt();
+
+        //Testing the pagination
+        assertThat(browser.pageSource()).contains("Joyce Hoffman");
+        searchPage.nextPage();
+
+
+        assertThat(!(browser.pageSource()).contains("Joyce Hoffman"));
+        assertThat(browser.pageSource()).contains("Sam Coffey");
+        searchPage.previousPage();
+        assertThat(!(browser.pageSource()).contains("Sam Coffey"));
+        assertThat(browser.pageSource()).contains("Joyce Hoffman");
+      }
+    });
+  }
 }
