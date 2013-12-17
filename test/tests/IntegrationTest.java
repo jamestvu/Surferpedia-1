@@ -6,6 +6,7 @@ import play.libs.F.Callback;
 import tests.pages.IndexPage;
 import tests.pages.LoginPage;
 import tests.pages.NewSurferPage;
+import tests.pages.RandomSurfer;
 import tests.pages.SearchResultsPage;
 import static play.test.Helpers.HTMLUNIT;
 import static play.test.Helpers.inMemoryDatabase;
@@ -133,6 +134,20 @@ public class IntegrationTest {
         searchPage.previousPage();
         assertThat(!(browser.pageSource()).contains("Sam Coffey"));
         assertThat(browser.pageSource()).contains("Joyce Hoffman");
+      }
+    });
+  }
+  
+  @Test
+  public void testRandom() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        IndexPage indexPage = new IndexPage(browser.getDriver(), PORT);
+        browser.goTo(indexPage);
+        indexPage.isAt();
+        RandomSurfer searchPage = new RandomSurfer(browser.getDriver(), PORT);
+        searchPage.randomSurfer();
+        searchPage.isAt();
       }
     });
   }
