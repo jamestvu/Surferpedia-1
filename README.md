@@ -11,6 +11,7 @@ This web application uses a back end database using SQL to store a database of s
 It also allows the administrator to edit and delete surfers to maintain accuracy of the database.
 
 There are currently 32 surfers in the database 11 female 11 males and 10 groms. 
+The carousel seen in the top image will be comprised of three random surfers from the database.
 
 It also has a random surfer feature where it takes you to a random surfers page if you want to find out about someone new.
 
@@ -22,13 +23,14 @@ Installation
 ------------
 
 Download the zip file, unzip, cd into the directory, invoke the Play console and execute run command to see the application at http://localhost:9000.
-or visit the cloudbees at http://surferpedia.jortal.cloudbees.net/ but if you use the local host you have to initialize the admin email and password
+Or visit the cloudbees at http://surferpedia.jortal.cloudbees.net/ but if you use the local host you have to initialize the admin email and password
 in the environmental variables.(see the application.conf files).
 
 Usage
 -----
 
-Use the navbars search function to look for and get information regarding the different surfers.
+Use the navbars search function to look for and get information regarding the different surfers. The way the search works is if there is no 
+input in the fields it will assume all values otherwise it will find the conditions and sort the surfers in order.
 ![screenshot](https://raw.github.com/jortal/Surferpedia/milestone-3/doc/FrontPage.png)
 
 Use the "New" link to add a new surfer to Surferpedia.
