@@ -4,6 +4,7 @@ import org.junit.Test;
 import play.test.TestBrowser;
 import play.libs.F.Callback;
 import tests.pages.IndexPage;
+import tests.pages.KellySlaterPage;
 import tests.pages.LoginPage;
 import tests.pages.NewSurferPage;
 import tests.pages.SearchResultsPage;
@@ -133,6 +134,51 @@ public class IntegrationTest {
         searchPage.previousPage();
         assertThat(!(browser.pageSource()).contains("Sam Coffey"));
         assertThat(browser.pageSource()).contains("Joyce Hoffman");
+      }
+    });
+  }
+  
+  @Test
+  public void addTestWhileLoggedOut() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        NewSurferPage newSurferPage = new NewSurferPage(browser.getDriver(), PORT);
+
+        // Navigate to create new surfer page.
+        browser.goTo(newSurferPage);
+        newSurferPage.isNotAt();
+      }
+    });
+  }
+  
+  @Test
+  public void editTestWhileLoggedOut() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        KellySlaterPage kellySlaterPage = new KellySlaterPage(browser.getDriver(), PORT);
+        LoginPage loginPage = new LoginPage(browser.getDriver(), PORT);
+        // Navigate to create new surfer page.
+        browser.goTo(kellySlaterPage);
+        kellySlaterPage.isAt();
+        browser.goTo(kellySlaterPage.getUrl()+"/edit");
+        //should redirect to login
+        loginPage.isAt();
+      }
+    });
+  }
+  
+  @Test
+  public void deleteTestWhileLoggedOut() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        KellySlaterPage kellySlaterPage = new KellySlaterPage(browser.getDriver(), PORT);
+        LoginPage loginPage = new LoginPage(browser.getDriver(), PORT);
+        // Navigate to create new surfer page.
+        browser.goTo(kellySlaterPage);
+        kellySlaterPage.isAt();
+        browser.goTo(kellySlaterPage.getUrl()+"/delete");
+        //should redirect to login
+        loginPage.isAt();
       }
     });
   }

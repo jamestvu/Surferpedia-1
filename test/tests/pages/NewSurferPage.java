@@ -36,6 +36,10 @@ public class NewSurferPage extends FluentPage {
     assertThat(title()).containsIgnoringCase("create");
   }
   
+  public void isNotAt() {
+    assertThat(title()).containsIgnoringCase("Login");
+  }
+  
   // Create surfer.
   public void makeSurfer(String name, String home, String country, String awards, String foot,
       String carouselUrl, String bioUrl, String bio, String slug, String surferType) {
