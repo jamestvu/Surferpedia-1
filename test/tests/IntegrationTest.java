@@ -9,6 +9,7 @@ import tests.pages.LoginPage;
 import tests.pages.NewSurferPage;
 import tests.pages.RandomSurfer;
 import tests.pages.SearchResultsPage;
+import tests.pages.UpdatesPage;
 import static play.test.Helpers.HTMLUNIT;
 import static play.test.Helpers.inMemoryDatabase;
 import static play.test.Helpers.fakeApplication;
@@ -35,6 +36,31 @@ public class IntegrationTest {
     });
   }
 
+  // Test to see that the updates page loads successfully when logged in, else redirects to login page.
+  @Test
+  public void testUpdatesRetrieval() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        UpdatesPage updatesPage = new UpdatesPage(browser.getDriver(), PORT);
+        LoginPage loginPage = new LoginPage(browser.getDriver(), PORT);
+
+        browser.goTo(updatesPage);
+        
+        // Confirm that the page redirected to the login page
+        assertThat(browser.pageSource().contains("please log in"));
+        
+        // Login to access the updates page.
+        loginPage.login();
+        browser.goTo(updatesPage);
+        
+        // Confirm that the updates page loaded.
+        updatesPage.isAt();
+
+      }
+    });
+  }
+  
+  
   // Test login/logout functions.
   @Test
   public void testLogin() {
@@ -57,7 +83,7 @@ public class IntegrationTest {
 
   // Test CRUD operations.
   @Test
-  public void testCrud() {
+  public void testCrudCreate() {
     running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
       public void invoke(TestBrowser browser) {
         LoginPage loginPage = new LoginPage(browser.getDriver(), PORT);
@@ -79,12 +105,62 @@ public class IntegrationTest {
         
         // Confirm that the surfer was created.
         assertThat(browser.pageSource()).contains("Test Surfer");
+                
+      }
+    });
+  }
+  
+  // Test update function.
+  @Test
+  public void testCrudUpdate() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        NewSurferPage newSurferPage = new NewSurferPage(browser.getDriver(), PORT);
+        LoginPage loginPage = new LoginPage(browser.getDriver(), PORT);
+
+        browser.goTo(loginPage);
+        // Login.
+        loginPage.login();
+
+        // Navigate to create new surfer page.
+        browser.goTo(newSurferPage);
+
+        // Create new surfer.
+        newSurferPage.makeSurfer("Test Surfer", "Home", "USA", "", "Goofy", "http://img.png", "http://img.png",
+            "test bio", "testslug", "Male");        
         
         // Test edit function for newly created surfer.
         newSurferPage.editSurfer();
+       
         // Confirm changes.
         assertThat(browser.pageSource()).contains("something else");
+
+      }
+    });
+  }
+  
+  
+  // Test delete function.
+  @Test
+  public void testCrudDelete() {
+    running(testServer(PORT, fakeApplication(inMemoryDatabase())), HTMLUNIT, new Callback<TestBrowser>() {
+      public void invoke(TestBrowser browser) {
+        NewSurferPage newSurferPage = new NewSurferPage(browser.getDriver(), PORT);
+
+        LoginPage loginPage = new LoginPage(browser.getDriver(), PORT);
+
+        browser.goTo(loginPage);
+        // Login.
+        loginPage.login();
         
+        
+        // Navigate to create new surfer page.
+        browser.goTo(newSurferPage);
+
+        // Create new surfer.
+        newSurferPage.makeSurfer("Test Surfer", "Home", "USA", "", "Goofy", "http://img.png", "http://img.png",
+            "test bio", "testslug", "Male");        
+                
         // Test delete function.
         newSurferPage.deleteSurfer();
         
@@ -95,7 +171,7 @@ public class IntegrationTest {
       }
     });
   }
-  
+    
   // Test search widget
   @Test
   public void testSearchWidget() {
