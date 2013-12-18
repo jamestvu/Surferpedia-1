@@ -25,6 +25,7 @@ Usage
 -----
 
 Use the navbar to find interior pages with bio information on surfers.
+![screenshot](https://raw.github.com/jortal/Surferpedia/milestone-3/doc/FrontPage.png)
 
 Use the "New" link to add a new surfer to Surferpedia.
 
