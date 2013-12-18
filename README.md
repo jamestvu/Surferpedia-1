@@ -46,4 +46,4 @@ On the Update page for the administrator he/she can see the changes that have be
 Credits
 -------
 
-Thanks to ICS 314, Fall 2013 and [Rob Namahoe](https://github.com/RobNamahoe/) (person whom I collaborated with for this assignment)
+Thanks to ICS 314, Fall 2013
