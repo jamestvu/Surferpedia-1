@@ -264,7 +264,7 @@ public class Global extends GlobalSettings {
       SurferDB.addSurfer(new SurferFormData("Duke Kahanamoku",
           "Honolulu, Hawaii",
           "3 Gold Medals and 2 Silver Medals in the Olympics for Swimming/Water Polo",
-          "https://www.google.com/search?q=duke+kahanamoku&rlz=1C1CHFX_enUS449US449&espv=210&es_sm=93&source=lnms&tbm=isch&sa=X&ei=xZmaUsTCGczzoAT25YDIBw&ved=0CAcQ_AUoAQ&biw=1920&bih=946&sei=g5qaUsWgJsHtoAS6lYDABw&gbv=2#es_sm=93&espv=210&gbv=2&q=duke+kahanamoku+surfing&tbm=isch&tbs=isz:l&facrc=_&imgdii=_&imgrc=403wo20_nW3ivM%3A%3BNERnGn32wAHvqM%3Bhttp%253A%252F%252Fwww.legendarysurfers.com%252Fsurf%252Fimages%252Fdiamondhead1943.jpg%3Bhttp%253A%252F%252Fwww.legendarysurfers.com%252Fsurf%252Flegends%252Fls12.shtml%3B1500%3B910",
+          "http://www.hawaiipictureoftheday.com/wp-content/uploads/2012/04/honolulu-surfer-bartlett-wm.jpg",
           "http://upload.wikimedia.org/wikipedia/commons/8/8b/Duke_P._Kahanamoku_(LOC)_(06652).jpg",
           biotext,
           "dukekahanamoku",
