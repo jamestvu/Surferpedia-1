@@ -4,7 +4,8 @@ Overview
 --------
 
 A [Play application](http://www.playframework.com/) that provides an encyclopedia of surfers.
-This system also has a login system for the administrator.
+
+This system uses a login system for the administrator whose values are stored in the environmental variables.
 ![screenshot](https://raw.github.com/jortal/Surferpedia/milestone-3/doc/Login.png)
 
 This web application uses a back end database using SQL to store a database of surfers. It holds bio information and pictures of the surfers.
